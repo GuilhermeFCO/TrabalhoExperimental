@@ -1,0 +1,110 @@
+---
+title: "Trabalho Experimental"
+subtitle: ""
+author: 
+  - "Guilherme Fernandes - 3398"
+  - "Júlia Fernandes - 3732"
+  - "Victor Hugo - 3510"
+institute: "Universidade Federal de Viçosa - Campus UFV Florestal"
+date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+output:
+  xaringan::moon_reader:
+    includes:
+      in_header: "favicon.html"
+    css: ["./style/semat.css", "./style/default-fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r, include=FALSE, echo=FALSE}
+library(knitr)
+library(emo)
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+```{r, include=FALSE, echo=FALSE}
+baseCDC <- openxlsx::read.xlsx("./data/baseCDC.xlsx")
+str(baseCDC$duracao)
+```
+
+
+class: center, middle
+
+```{r qrcode, echo=FALSE, out.width='30%'}
+# knitr::include_graphics('img/Sia2022.png')
+```
+</div>
+.center[
+[guilhermefco.github.io/TrabalhoExperimental](guilhermefco.github.io/TrabalhoExperimental)
+]
+
+---
+# Sumário
+
+- O que é Machine Learning?
+- Tipos de Modelo
+- Random Forest
+- Processamento de Linguagem Natural
+- Term frequency–inverse document frequency
+- Aplicação a uma base real
+- Próximos passos
+- Onde queremos chegar
+
+---
+# O que é Machine Learning?
+
+```{r ia, echo=FALSE, out.width='80%', fig.align='center'}
+# knitr::include_graphics('img/machinelearning.gif')
+```
+
+**Fonte:** [TUMBLR](https://24.media.tumblr.com/tumblr_mb7vwlkm1a1rhb8umo1_500.gif)
+
+---
+# O que é Machine Learning?
+
+.justify[
+"Machine learning é um ramo da inteligência artificial (IA) e da ciência da computação que se concentra no uso de dados e algoritmos para imitar a maneira como os humanos aprendem, melhorando gradualmente sua precisão."
+]
+
+**Fonte:** [IBM](https://www.ibm.com/br-pt/cloud/learn/machine-learning)
+--
+</br></br>
+.justify[
+"Por meio do uso de métodos estatísticos, os algoritmos são treinados para fazer classificações ou previsões, revelando os principais insights em projetos"
+]
+
+**Fonte:** [IBM](https://www.ibm.com/br-pt/cloud/learn/machine-learning)
+---
+# Tipos de Modelos
+
+.panelset[
+  .panel[.panel-name[Modelo Supervisionado]
+.center[
+```{r supervisionado, echo=FALSE, out.width='60%'}
+# knitr::include_graphics('img/modelo-supervisionado.png')
+```
+]
+
+**Fonte:** [progamaria](https://www.programaria.org/carreira-em-machine-learning-como-se-preparar-para-trabalhar-na-area/)
+  ]
+  .panel[.panel-name[Modelo Não Supervisionado]
+.center[
+```{r naosupervisionado, echo=FALSE, out.width='60%'}
+# knitr::include_graphics('img/naosupervisionado.png')
+```
+]
+
+**Fonte:** [progamaria](https://www.programaria.org/carreira-em-machine-learning-como-se-preparar-para-trabalhar-na-area/)
+  ]
+]
+
+---
+class: center, middle, inverse
+
+# Obrigado!
