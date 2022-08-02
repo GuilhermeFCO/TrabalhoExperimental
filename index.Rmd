@@ -30,9 +30,12 @@ xaringanExtra::use_panelset()
 
 ```{r, include=FALSE, echo=FALSE}
 baseCDC <- openxlsx::read.xlsx("./data/baseCDC.xlsx")
-str(baseCDC$duracao)
+str(baseCDC)
+baseCDC$duracao <- as.numeric(substr(chron::times(baseCDC$duracao),4,5)) + as.numeric(substr(chron::times(baseCDC$duracao),7,8))/60
+baseCDC$horario_inicio <- NULL
+baseCDC$horario_terminor <- NULL
+baseCDC$curso <- "CDC"
 ```
-
 
 class: center, middle
 
@@ -58,6 +61,10 @@ class: center, middle
 
 ---
 # O que é Machine Learning?
+
+```{r echo=FALSE}
+baseCDC |> knitr::kable()
+```
 
 ```{r ia, echo=FALSE, out.width='80%', fig.align='center'}
 # knitr::include_graphics('img/machinelearning.gif')
