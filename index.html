@@ -6,7 +6,7 @@
     <meta name="author" content="Guilherme Fernandes - 3398" />
     <meta name="author" content="Júlia Fernandes - 3732" />
     <meta name="author" content="Victor Hugo - 3510" />
-    <meta name="date" content="2022-02-08" />
+    <meta name="date" content="2022-04-08" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.6/panelset.js"></script>
@@ -35,13 +35,10 @@ class: center, middle, inverse, title-slide
 ### Universidade Federal de Viçosa - Campus UFV Florestal
 ]
 .date[
-### 02/08/2022
+### 04/08/2022
 ]
 
 ---
-
-
-
 
 
 
@@ -58,87 +55,402 @@ class: center, middle
 [guilhermefco.github.io/TrabalhoExperimental](guilhermefco.github.io/TrabalhoExperimental)
 ]
 
+.center[
+[guilhermefco.github.io/TrabalhoExperimental/Relatorio](guilhermefco.github.io/TrabalhoExperimental/Relatorio)
+]
+
 ---
 # Sumário
 
-- O que é Machine Learning?
-- Tipos de Modelo
-- Random Forest
-- Processamento de Linguagem Natural
-- Term frequency–inverse document frequency
-- Aplicação a uma base real
-- Próximos passos
-- Onde queremos chegar
+- Introdução
+- Materiais e Métodos
+- Análise Geral
+- Análise separada por curso
+- Conclusão
 
 ---
-# O que é Machine Learning?
+# Introdução
 
+Devido a pandemia do Covid-19, fomos forçados a ter aulas remotas.
 
-|   |sexo      | idade| ano_ingresso|formato_ensino |tratamento | numero_acertos|   duracao| q1| q2| q3| q4| q5| q6| q7| q8| q9| q10| q11| q12| q13| q14| q15| q16| q17| q18| q19| q20|curso |
-|:--|:---------|-----:|------------:|:--------------|:----------|--------------:|---------:|--:|--:|--:|--:|--:|--:|--:|--:|--:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:-----|
-|1  |Masculino |    24|         2017|Presencial     |Com música |             13| 14.883333|  1|  1|  1|  1|  1|  1|  1|  0|  1|   0|   1|   0|   1|   1|   0|   0|   0|   1|   1|   0|CDC   |
-|2  |Masculino |    25|         2016|Presencial     |Sem música |             11| 19.250000|  1|  1|  1|  1|  1|  1|  1|  0|  1|   0|   0|   0|   1|   0|   1|   0|   0|   1|   0|   0|CDC   |
-|3  |Masculino |    26|         2016|Presencial     |Com música |             12| 15.883333|  0|  1|  1|  0|  0|  0|  1|  0|  1|   0|   1|   1|   1|   1|   1|   0|   1|   1|   1|   0|CDC   |
-|4  |Masculino |    20|         2020|Remota         |Com música |             10| 10.983333|  0|  1|  1|  0|  0|  1|  1|  0|  0|   0|   1|   1|   1|   1|   0|   1|   0|   1|   0|   0|CDC   |
-|5  |Masculino |    22|         2018|Presencial     |Com música |             14| 11.466667|  1|  1|  1|  1|  0|  0|  1|  0|  0|   1|   1|   1|   1|   1|   1|   1|   1|   1|   0|   0|CDC   |
-|6  |Masculino |    22|         2018|Presencial     |Com música |             11| 14.150000|  0|  1|  1|  0|  1|  1|  1|  0|  0|   0|   1|   0|   1|   1|   0|   1|   0|   1|   1|   0|CDC   |
-|7  |Masculino |    24|         2018|Presencial     |Sem música |              9| 16.333333|  1|  0|  1|  1|  0|  0|  1|  0|  0|   0|   1|   0|   1|   1|   0|   0|   0|   1|   1|   0|CDC   |
-|8  |Masculino |    21|         2020|Remota         |Sem música |             12| 13.683333|  1|  0|  0|  1|  0|  0|  1|  1|  0|   0|   1|   1|   1|   1|   0|   1|   0|   1|   1|   1|CDC   |
-|9  |Feminino  |    20|         2020|Remota         |Com música |             13| 15.716667|  0|  0|  1|  0|  1|  0|  1|  0|  1|   1|   1|   0|   1|   1|   1|   1|   1|   1|   1|   0|CDC   |
-|10 |Masculino |    20|         2020|Remota         |Sem música |              9| 11.300000|  0|  0|  0|  1|  1|  0|  0|  0|  0|   0|   1|   1|   1|   1|   1|   1|   0|   1|   0|   0|CDC   |
-|11 |Masculino |    20|         2020|Remota         |Com música |             11| 12.983333|  0|  0|  1|  0|  1|  1|  1|  1|  0|   0|   0|   0|   1|   0|   0|   1|   1|   1|   1|   1|CDC   |
-|12 |Masculino |    21|         2020|Remota         |Sem música |              6| 17.583333|  0|  0|  1|  0|  1|  0|  1|  0|  0|   0|   0|   0|   1|   0|   0|   0|   1|   1|   0|   0|CDC   |
-|13 |Feminino  |    20|         2021|Remota         |Sem música |             11|  7.283333|  0|  1|  1|  0|  0|  1|  1|  0|  0|   1|   1|   1|   1|   1|   0|   1|   0|   1|   0|   0|CDC   |
-|15 |Feminino  |    19|         2021|Remota         |Com música |             15| 11.066667|  1|  1|  1|  0|  1|  0|  1|  0|  1|   1|   1|   1|   1|   1|   1|   0|   1|   1|   1|   0|CDC   |
-|16 |Feminino  |    19|         2021|Remota         |Com música |              7| 12.683333|  1|  0|  0|  0|  0|  0|  1|  0|  0|   0|   1|   0|   1|   1|   0|   1|   0|   1|   0|   0|CDC   |
-|17 |Masculino |    20|         2020|Remota         |Sem música |             10| 13.583333|  0|  0|  1|  0|  1|  1|  1|  0|  0|   0|   0|   1|   1|   0|   1|   0|   1|   1|   1|   0|CDC   |
-|18 |Masculino |    22|         2018|Presencial     |Sem música |             13| 27.066667|  1|  1|  1|  1|  1|  0|  1|  0|  0|   1|   1|   0|   1|   1|   1|   0|   1|   1|   0|   0|CDC   |
-|19 |Feminino  |    20|         2020|Remota         |Sem música |             15| 11.433333|  1|  1|  1|  1|  0|  1|  1|  0|  0|   1|   1|   1|   1|   1|   1|   1|   1|   1|   0|   0|CDC   |
-|20 |Masculino |    21|         2020|Remota         |Com música |             14| 15.383333|  1|  1|  1|  1|  1|  1|  1|  0|  0|   1|   1|   0|   1|   1|   0|   1|   0|   1|   1|   0|CDC   |
-|21 |Masculino |    23|         2018|Presencial     |Sem música |             11| 19.450000|  1|  0|  1|  0|  1|  0|  1|  0|  0|   0|   1|   0|   1|   1|   1|   0|   1|   1|   1|   0|CDC   |
-|22 |Masculino |    23|         2016|Presencial     |Com música |             12| 17.533333|  0|  0|  1|  0|  1|  1|  1|  0|  0|   1|   1|   1|   1|   1|   0|   0|   1|   1|   1|   0|CDC   |
-|23 |Masculino |    22|         2019|Presencial     |Sem música |             15| 14.016667|  1|  1|  1|  0|  1|  1|  1|  1|  0|   1|   1|   1|   1|   1|   0|   1|   1|   1|   0|   0|CDC   |
-|24 |Masculino |    30|         2018|Presencial     |Com música |             13| 16.133333|  0|  0|  1|  0|  0|  1|  1|  0|  1|   1|   1|   1|   1|   1|   1|   1|   1|   1|   0|   0|CDC   |
-|25 |Masculino |    26|         2018|Presencial     |Sem música |             11| 25.366667|  1|  0|  1|  0|  1|  1|  1|  0|  1|   0|   1|   0|   1|   1|   0|   1|   0|   1|   0|   0|CDC   |
-
-
-
-**Fonte:** [TUMBLR](https://24.media.tumblr.com/tumblr_mb7vwlkm1a1rhb8umo1_500.gif)
+No semestre atual a UFV definiu que as aulas obrigatoriamente deveriam ser presenciais.
 
 ---
-# O que é Machine Learning?
+class: center, middle, inverse
 
-.justify[
-"Machine learning é um ramo da inteligência artificial (IA) e da ciência da computação que se concentra no uso de dados e algoritmos para imitar a maneira como os humanos aprendem, melhorando gradualmente sua precisão."
-]
+Será que realmente há diferença de aprendizagem entre o presencial e o remoto?
 
-**Fonte:** [IBM](https://www.ibm.com/br-pt/cloud/learn/machine-learning)
+---
+# Materiais e Métodos
+
+- Google Forms
+- Laboratório de Informática da Matemática
+- Excel
+- R
+- Github
+
+---
+# Provas
+
+EXPLICAÇÃO SOBRE AS PROVAS, COMO FORAM DECIDIDOS, SORTEIO
+
+---
+# Laboratório de Informática da Matemárica
+
+COMO ERA O AMBIENTE, FOTOS
+
+
+---
+# Análise Geral
+
+## Por Formato de Ensino
+
+
+|Variável       |formato_ensino | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
+|:--------------|:--------------|-------:|-----:|------:|------:|-------------:|---------:|--:|
+|numero_acertos |Presencial     |   12.00| 12.00|   8.00|  16.00|          2.30|      5.29| 18|
+|numero_acertos |Remoto         |   11.00| 11.17|   6.00|  15.00|          2.98|      8.85| 18|
+|idade          |Presencial     |   22.00| 23.28|  21.00|  30.00|          2.27|      5.15| 18|
+|idade          |Remoto         |   20.00| 19.89|  19.00|  22.00|          0.90|      0.81| 18|
+|duracao        |Presencial     |   19.35| 28.73|  11.47|  73.17|         19.54|    381.69| 18|
+|duracao        |Remoto         |   13.63| 21.26|   7.28|  70.40|         17.82|    317.61| 18|
+
+
+
+|Variável     |Grupo      |formato_ensino |  N|
+|:------------|:----------|:--------------|--:|
+|sexo         |Feminino   |Presencial     |  2|
+|sexo         |Feminino   |Remoto         |  9|
+|sexo         |Masculino  |Presencial     | 16|
+|sexo         |Masculino  |Remoto         |  9|
+|ano_ingresso |2016       |Presencial     |  3|
+|ano_ingresso |2017       |Presencial     |  1|
+|ano_ingresso |2018       |Presencial     |  8|
+|ano_ingresso |2019       |Presencial     |  6|
+|ano_ingresso |2020       |Remoto         |  9|
+|ano_ingresso |2021       |Remoto         |  9|
+|tratamento   |Com música |Presencial     |  9|
+|tratamento   |Com música |Remoto         |  9|
+|tratamento   |Sem música |Presencial     |  9|
+|tratamento   |Sem música |Remoto         |  9|
+|curso        |CDC        |Presencial     | 12|
+|curso        |CDC        |Remoto         | 12|
+|curso        |MAT        |Presencial     |  6|
+|curso        |MAT        |Remoto         |  6|
+
+---
+# Análise Geral
+
+## Por Formato de Ensino
+
+&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+# Análise Geral
+
+## Por Formato de Ensino
+
+
+|Variável          | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
+|:-----------------|------------------:|------------------:|--------:|:-------|:-------|
+|Formato do Ensino |                  1|               6.25|    6.250|0.884   |0.354   |
+|Resíduos          |                 34|             240.50|    7.074|-       |-       |
+
+---
+# Análise Geral
+
+## Por Tratamento
+
+
+|Variável       |tratamento | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
+|:--------------|:----------|-------:|-----:|------:|------:|-------------:|---------:|--:|
+|numero_acertos |Com música |   13.00| 12.50|   7.00|  16.00|          2.62|      6.85| 18|
+|numero_acertos |Sem música |   11.00| 10.67|   6.00|  15.00|          2.43|      5.88| 18|
+|idade          |Com música |   21.50| 21.72|  19.00|  30.00|          2.80|      7.86| 18|
+|idade          |Sem música |   21.00| 21.44|  19.00|  26.00|          2.04|      4.14| 18|
+|duracao        |Com música |   15.80| 27.32|  10.98|  73.17|         21.94|    481.37| 18|
+|duracao        |Sem música |   18.42| 22.67|   7.28|  70.40|         15.36|    236.04| 18|
+
+
+
+|Variável       |Grupo      |tratamento |  N|
+|:--------------|:----------|:----------|--:|
+|sexo           |Feminino   |Com música |  5|
+|sexo           |Feminino   |Sem música |  6|
+|sexo           |Masculino  |Com música | 13|
+|sexo           |Masculino  |Sem música | 12|
+|ano_ingresso   |2016       |Com música |  2|
+|ano_ingresso   |2016       |Sem música |  1|
+|ano_ingresso   |2017       |Com música |  1|
+|ano_ingresso   |2018       |Com música |  3|
+|ano_ingresso   |2018       |Sem música |  5|
+|ano_ingresso   |2019       |Com música |  3|
+|ano_ingresso   |2019       |Sem música |  3|
+|ano_ingresso   |2020       |Com música |  4|
+|ano_ingresso   |2020       |Sem música |  5|
+|ano_ingresso   |2021       |Com música |  5|
+|ano_ingresso   |2021       |Sem música |  4|
+|formato_ensino |Presencial |Com música |  9|
+|formato_ensino |Presencial |Sem música |  9|
+|formato_ensino |Remoto     |Com música |  9|
+|formato_ensino |Remoto     |Sem música |  9|
+|curso          |CDC        |Com música | 12|
+|curso          |CDC        |Sem música | 12|
+|curso          |MAT        |Com música |  6|
+|curso          |MAT        |Sem música |  6|
+
+---
+# Análise Geral
+
+## Por Tratamento
+
+![](index_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+---
+# Análise Geral
+
+## Por Tratamento
+
+
+|Variável   | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
+|:----------|------------------:|------------------:|--------:|:-------|:-------|
+|Tratamento |                  1|              30.25|   30.250|4.751   |0.036   |
+|Resíduos   |                 34|             216.50|    6.368|-       |-       |
+
+---
+# Análise Geral
+
+## Por Formato de Ensino e Tratamento
+
+
+|Variável       |formato_ensino |tratamento | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
+|:--------------|:--------------|:----------|-------:|-----:|------:|------:|-------------:|---------:|--:|
+|numero_acertos |Presencial     |Com música |   13.00| 13.00|  10.00|  16.00|          2.06|      4.25|  9|
+|numero_acertos |Presencial     |Sem música |   11.00| 11.00|   8.00|  15.00|          2.18|      4.75|  9|
+|numero_acertos |Remoto         |Com música |   13.00| 12.00|   7.00|  15.00|          3.12|      9.75|  9|
+|numero_acertos |Remoto         |Sem música |   10.00| 10.33|   6.00|  15.00|          2.74|      7.50|  9|
+|idade          |Presencial     |Com música |   22.00| 23.56|  21.00|  30.00|          2.83|      8.03|  9|
+|idade          |Presencial     |Sem música |   22.00| 23.00|  21.00|  26.00|          1.66|      2.75|  9|
+|idade          |Remoto         |Com música |   20.00| 19.89|  19.00|  22.00|          1.05|      1.11|  9|
+|idade          |Remoto         |Sem música |   20.00| 19.89|  19.00|  21.00|          0.78|      0.61|  9|
+|duracao        |Presencial     |Com música |   16.13| 32.08|  11.47|  73.17|         26.09|    680.91|  9|
+|duracao        |Presencial     |Sem música |   23.82| 25.39|  14.02|  45.12|         10.25|    105.04|  9|
+|duracao        |Remoto         |Com música |   15.38| 22.57|  10.98|  56.32|         17.06|    291.18|  9|
+|duracao        |Remoto         |Sem música |   13.58| 19.94|   7.28|  70.40|         19.49|    379.86|  9|
+
+
+
+|Variável     |Grupo     |tratamento |formato_ensino |  N|
+|:------------|:---------|:----------|:--------------|--:|
+|sexo         |Feminino  |Com música |Presencial     |  1|
+|sexo         |Feminino  |Com música |Remoto         |  4|
+|sexo         |Feminino  |Sem música |Presencial     |  1|
+|sexo         |Feminino  |Sem música |Remoto         |  5|
+|sexo         |Masculino |Com música |Presencial     |  8|
+|sexo         |Masculino |Com música |Remoto         |  5|
+|sexo         |Masculino |Sem música |Presencial     |  8|
+|sexo         |Masculino |Sem música |Remoto         |  4|
+|ano_ingresso |2016      |Com música |Presencial     |  2|
+|ano_ingresso |2016      |Sem música |Presencial     |  1|
+|ano_ingresso |2017      |Com música |Presencial     |  1|
+|ano_ingresso |2018      |Com música |Presencial     |  3|
+|ano_ingresso |2018      |Sem música |Presencial     |  5|
+|ano_ingresso |2019      |Com música |Presencial     |  3|
+|ano_ingresso |2019      |Sem música |Presencial     |  3|
+|ano_ingresso |2020      |Com música |Remoto         |  4|
+|ano_ingresso |2020      |Sem música |Remoto         |  5|
+|ano_ingresso |2021      |Com música |Remoto         |  5|
+|ano_ingresso |2021      |Sem música |Remoto         |  4|
+|curso        |CDC       |Com música |Presencial     |  6|
+|curso        |CDC       |Com música |Remoto         |  6|
+|curso        |CDC       |Sem música |Presencial     |  6|
+|curso        |CDC       |Sem música |Remoto         |  6|
+|curso        |MAT       |Com música |Presencial     |  3|
+|curso        |MAT       |Com música |Remoto         |  3|
+|curso        |MAT       |Sem música |Presencial     |  3|
+|curso        |MAT       |Sem música |Remoto         |  3|
+
+---
+# Análise Geral
+
+## Por Formato de Ensino e Tratamento
+
+&lt;img src="index_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+# Análise Geral
+
+## Por Formato de Ensino e Tratamento
+
+
+|Variável                       | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
+|:------------------------------|------------------:|------------------:|--------:|:-------|:-------|
+|Formato do Ensino              |                  1|               6.25|    6.250|0.952   |0.336   |
+|Tratamento                     |                  1|              30.25|   30.250|4.61    |0.039   |
+|Formato do Ensino : Tratamento |                  1|               0.25|    0.250|0.038   |0.846   |
+|Resíduos                       |                 32|             210.00|    6.562|-       |-       |
+
+---
+# Análise Geral
+
+## Por Formato de Ensino e Tratamento
+
+
+```
+##                            diff       lwr         upr      p adj
+## Sem música-Com música -1.833333 -3.572696 -0.09397036 0.03947468
+```
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino
+
+
+
+
+---
+# Análise Ciência da Computação
+
+## Por Tratamento
+
+
+
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino e Tratamento
+
+
+
+---
+# Análise Matemática
+
+## Por Formato de Ensino
+
+
+|Variável       |formato_ensino | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
+|:--------------|:--------------|-------:|-----:|------:|------:|-------------:|---------:|--:|
+|numero_acertos |Presencial     |   11.00| 11.83|   8.00|  16.00|          3.49|     12.17|  6|
+|numero_acertos |Remoto         |   11.00| 11.33|   8.00|  15.00|          3.39|     11.47|  6|
+|idade          |Presencial     |   22.00| 21.67|  21.00|  22.00|          0.52|      0.27|  6|
+|idade          |Remoto         |   19.00| 19.50|  19.00|  22.00|          1.22|      1.50|  6|
+|duracao        |Presencial     |   50.23| 50.94|  23.82|  73.17|         19.06|    363.23|  6|
+|duracao        |Remoto         |   35.64| 38.16|  10.62|  70.40|         23.45|    549.76|  6|
+
+---
+# Análise Matemática
+
+## Por Formato de Ensino
+
+&lt;img src="index_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+# Análise Matemática
+
+## Por Formato de Ensino
+
+
+|Variável          | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
+|:-----------------|------------------:|------------------:|--------:|:-------|:-------|
+|Formato do Ensino |                  1|              0.750|    0.750|0.063   |0.806   |
+|Resíduos          |                 10|            118.167|   11.817|-       |-       |
+
+---
+# Análise Matemática
+
+## Por Tratamento
+
+
+|Variável       |tratamento | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
+|:--------------|:----------|-------:|-----:|------:|------:|-------------:|---------:|--:|
+|numero_acertos |Com música |   15.00| 13.33|   8.00|  16.00|          3.44|     11.87|  6|
+|numero_acertos |Sem música |    9.00|  9.83|   8.00|  13.00|          2.14|      4.57|  6|
+|idade          |Com música |   21.50| 20.83|  19.00|  22.00|          1.47|      2.17|  6|
+|idade          |Sem música |   20.00| 20.33|  19.00|  22.00|          1.51|      2.27|  6|
+|duracao        |Com música |   55.83| 53.83|  20.32|  73.17|         19.02|    361.81|  6|
+|duracao        |Sem música |   30.96| 35.27|  10.62|  70.40|         21.04|    442.85|  6|
+
+---
+# Análise Matemática
+
+## Por Tratamento
+
+![](index_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+
+---
+# Análise Matemática
+
+## Por Tratamento
+
+
+|Variável   | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
+|:----------|------------------:|------------------:|--------:|:-------|:-------|
+|Tratamento |                  1|             36.750|   36.750|4.473   |0.061   |
+|Resíduos   |                 10|             82.167|    8.217|-       |-       |
+
+---
+# Análise Matemática
+
+## Por Formato de Ensino e Tratamento
+
+
+
+|Variável       |formato_ensino |tratamento | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
+|:--------------|:--------------|:----------|-------:|-----:|------:|------:|-------------:|---------:|--:|
+|numero_acertos |Presencial     |Com música |   16.00| 14.00|  10.00|  16.00|          3.46|     12.00|  3|
+|numero_acertos |Presencial     |Sem música |    9.00|  9.67|   8.00|  12.00|          2.08|      4.33|  3|
+|numero_acertos |Remoto         |Com música |   15.00| 12.67|   8.00|  15.00|          4.04|     16.33|  3|
+|numero_acertos |Remoto         |Sem música |    9.00| 10.00|   8.00|  13.00|          2.65|      7.00|  3|
+|idade          |Presencial     |Com música |   22.00| 21.67|  21.00|  22.00|          0.58|      0.33|  3|
+|idade          |Presencial     |Sem música |   22.00| 21.67|  21.00|  22.00|          0.58|      0.33|  3|
+|idade          |Remoto         |Com música |   19.00| 20.00|  19.00|  22.00|          1.73|      3.00|  3|
+|idade          |Remoto         |Sem música |   19.00| 19.00|  19.00|  19.00|          0.00|      0.00|  3|
+|duracao        |Presencial     |Com música |   70.13| 66.21|  55.33|  73.17|          9.54|     91.04|  3|
+|duracao        |Presencial     |Sem música |   38.10| 35.68|  23.82|  45.12|         10.85|    117.82|  3|
+|duracao        |Remoto         |Com música |   47.68| 41.44|  20.32|  56.32|         18.79|    353.24|  3|
+|duracao        |Remoto         |Sem música |   23.60| 34.87|  10.62|  70.40|         31.45|    988.81|  3|
+
+# Análise Matemática
+
+## Por Formato de Ensino e Tratamento
+
+&lt;img src="index_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+
+# Análise Matemática
+
+## Por Formato de Ensino e Tratamento
+
+
+|Variável                       | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
+|:------------------------------|------------------:|------------------:|--------:|:-------|:-------|
+|Formato do Ensino              |                  1|              0.750|    0.750|0.076   |0.79    |
+|Tratamento                     |                  1|             36.750|   36.750|3.706   |0.09    |
+|Formato do Ensino : Tratamento |                  1|              2.083|    2.083|0.21    |0.659   |
+|Resíduos                       |                  8|             79.333|    9.917|-       |-       |
+
+# Análise Matemática
+
+## Por Formato de Ensino e Tratamento
+
+
+```
+##                       diff       lwr       upr     p adj
+## Sem música-Com música -3.5 -7.692589 0.6925892 0.0904062
+```
+
+---
+# Conclusão
+
+Como vimos as análises anteriores, há um nível de significância de `\(5%\)`
+não existem evidências que comprovem que houve diferença na aprendizagem dos alunos.
+
 --
-&lt;/br&gt;&lt;/br&gt;
-.justify[
-"Por meio do uso de métodos estatísticos, os algoritmos são treinados para fazer classificações ou previsões, revelando os principais insights em projetos"
-]
 
-**Fonte:** [IBM](https://www.ibm.com/br-pt/cloud/learn/machine-learning)
----
-# Tipos de Modelos
+Então fica o seguinte questionamento, por qual motivo a UFV não autoriza os professores
+que querem dar aula remota em conjunto dos alunos a terem?
 
-.panelset[
-  .panel[.panel-name[Modelo Supervisionado]
-.center[
-
-]
-
-**Fonte:** [progamaria](https://www.programaria.org/carreira-em-machine-learning-como-se-preparar-para-trabalhar-na-area/)
-  ]
-  .panel[.panel-name[Modelo Não Supervisionado]
-.center[
-
-]
-
-**Fonte:** [progamaria](https://www.programaria.org/carreira-em-machine-learning-como-se-preparar-para-trabalhar-na-area/)
-  ]
-]
 
 ---
 class: center, middle, inverse

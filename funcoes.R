@@ -1,3 +1,72 @@
+library(magrittr)
+library(ggplot2)
+
+descritivaContinua <- function(df, variaveis, grupo = NULL) {
+  
+  for (i in 1:length(variaveis)) {
+    if (is.null(grupo)) {
+      aux <- df %>%
+        dplyr::summarise("Mediana" = round(median(!!sym(variaveis[i])), 2),
+                         "Média" = round(mean(!!sym(variaveis[i])), 2),
+                         "Mínimo" = round(min(!!sym(variaveis[i])), 2),
+                         "Máximo" = round(max(!!sym(variaveis[i])), 2),
+                         "Desvio Padrão" = round(sd(!!sym(variaveis[i])), 2),
+                         "Variância" = round(var(!!sym(variaveis[i])), 2),
+                         "N" = dplyr::n())
+      aux[, "Variável"] <- variaveis[i]
+      aux <- aux %>% dplyr::relocate("Variável", .before = 1)
+    } else if (length(grupo) == 1) {
+      aux <- df %>%
+        dplyr::group_by(!!sym(grupo)) %>%
+        dplyr::summarise("Mediana" = round(median(!!sym(variaveis[i])), 2),
+                         "Média" = round(mean(!!sym(variaveis[i])), 2),
+                         "Mínimo" = round(min(!!sym(variaveis[i])), 2),
+                         "Máximo" = round(max(!!sym(variaveis[i])), 2),
+                         "Desvio Padrão" = round(sd(!!sym(variaveis[i])), 2),
+                         "Variância" = round(var(!!sym(variaveis[i])), 2),
+                         "N" = dplyr::n())
+      aux[, "Variável"] <- variaveis[i]
+      aux <- aux %>% dplyr::relocate("Variável", .before = 1)
+    } else {
+      
+      aux <- df %>%
+        dplyr::group_by(!!!syms(grupo)) %>%
+        dplyr::summarise("Mediana" = round(median(!!sym(variaveis[i])), 2),
+                         "Média" = round(mean(!!sym(variaveis[i])), 2),
+                         "Mínimo" = round(min(!!sym(variaveis[i])), 2),
+                         "Máximo" = round(max(!!sym(variaveis[i])), 2),
+                         "Desvio Padrão" = round(sd(!!sym(variaveis[i])), 2),
+                         "Variância" = round(var(!!sym(variaveis[i])), 2),
+                         "N" = dplyr::n())
+      aux[, "Variável"] <- variaveis[i]
+      aux <- aux %>% dplyr::relocate("Variável", .before = 1)
+    }
+    
+    if (i == 1) resultado <- aux
+    else resultado <- resultado %>% rbind(aux)
+  }
+  
+  return(resultado %>% data.frame())
+}
+
+descritivaCategorica <- function(df, variaveis, grupo) {
+  
+  for (i in 1:length(variaveis)) {
+    aux <- df %>%
+      dplyr::group_by(!!!syms(c(variaveis[i], grupo))) %>% 
+      dplyr::summarise("N" = dplyr::n())
+    aux[, "Variável"] <- variaveis[i]
+    aux <- aux %>% dplyr::relocate("Variável", .before = 1)
+    
+    colnames(aux)[2] <- "Grupo"
+    
+    if (i == 1) resultado <- aux
+    else resultado <- resultado %>% rbind(aux)
+  }
+  
+  return(resultado %>% data.frame())
+}
+
 Anova <- function(df, Formula, label) {
   fit <- aov(formula(Formula), data = df)
   fitSumm <- summary(fit)[[1]]
@@ -19,7 +88,7 @@ Anova <- function(df, Formula, label) {
   
   fitSumm[nrow(fitSumm), 1] <- "Resíduos"
   
-  fitSumm[is.na(fitSumm)] <- ""
+  fitSumm[is.na(fitSumm)] <- " - "
   
   return(list(fit, fitSumm))
 }
