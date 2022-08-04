@@ -1,9 +1,9 @@
 ---
-title: "Trabalho Experimental"
+title: "Ensino Remoto X Ensino Presencial"
 subtitle: ""
 author: 
-  - "Guilherme Fernandes - 3398"
-  - "Júlia Fernandes - 3732"
+  - "Guilherme Fernandes Martins - 3398"
+  - "Júlia Fernandes Martins - 3732"
   - "Victor Hugo - 3510"
 institute: "Universidade Federal de Viçosa - Campus UFV Florestal"
 date: "`r format(Sys.Date(), '%d/%m/%Y')`"
@@ -66,10 +66,14 @@ Devido a pandemia do Covid-19, fomos forçados a ter aulas remotas.
 
 No semestre atual a UFV definiu que as aulas obrigatoriamente deveriam ser presenciais.
 
+VICTOR
+
 ---
 class: center, middle, inverse
 
 Será que realmente há diferença de aprendizagem entre o presencial e o remoto?
+
+VICTOR
 
 ---
 # Materiais e Métodos
@@ -79,43 +83,78 @@ Será que realmente há diferença de aprendizagem entre o presencial e o remoto
 - Excel
 - R
 - Github
+- ANOVA
 
 ---
 # Provas
 
-EXPLICAÇÃO SOBRE AS PROVAS, COMO FORAM DECIDIDOS, SORTEIO
+- 20 questões
+- Dados anônimos
+- Disciplinas
+- Google Forms
 
 ---
-# Laboratório de Informática da Matemárica
 
-COMO ERA O AMBIENTE, FOTOS
+# Tratamento
 
+- Música
 
+---
+# Laboratório de Informática da Matemática
+
+- Ambiente controlado
+
+```{r, fig.align='center', out.width='70%', out.height='70%'}
+knitr::include_graphics("./img/lab.jpeg")
+```
+
+---
+# Laboratório de Informática da Matemática
+
+- Ambiente controlado
+
+```{r, fig.align='center', out.width='60%', out.height='50%'}
+knitr::include_graphics("./img/lab2.jpeg")
+```
+
+---
+# Laboratório de Informática da Matemática
+
+- Ambiente controlado
+
+```{r, fig.align='center', out.width='60%', out.height='50%'}
+knitr::include_graphics("./img/lab3.jpeg")
+```
+
+---
+# Delineamento
+
+- DBC
+  - Curso
+  - Formato do Ensino
+  
 ---
 # Análise Geral
 
 ## Por Formato de Ensino
 
-```{r, echo=FALSE}
+.center[
+```{r, echo=FALSE, out.width="70%"}
 descritivaContinua(
   df = base, 
   variaveis = c("numero_acertos", "idade", "duracao"),
   grupo = "formato_ensino"
-) %>% knitr::kable()
-
-descritivaCategorica(
-  df = base,
-  variaveis = c("sexo", "ano_ingresso", "tratamento", "curso"),
-  grupo = "formato_ensino"
-) %>% knitr::kable()
+) %>% kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper(full_width = F)
 ```
+]
 
 ---
 # Análise Geral
 
 ## Por Formato de Ensino
 
-```{r, echo=FALSE, fig.align='center'}
+.center[
+```{r, echo=FALSE, out.height="400px"}
 boxplot(
   df = base,
   Y = "numero_acertos",
@@ -125,6 +164,18 @@ boxplot(
   labelY = "Formato de Ensino"
 )
 ```
+]
+
+---
+# Análise Geral
+
+## Por Formato de Ensino
+
+### Hipótese
+
+
+$$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$
+
 
 ---
 # Análise Geral
@@ -132,7 +183,8 @@ boxplot(
 ## Por Formato de Ensino
 
 ```{r, echo=FALSE}
-Anova(base, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>% knitr::kable()
+Anova(base, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>%
+  kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper()
 ```
 
 ---
@@ -140,19 +192,12 @@ Anova(base, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>% 
 
 ## Por Tratamento
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="70%"}
 descritivaContinua(
-  df = base, 
+  df = base,
   variaveis = c("numero_acertos", "idade", "duracao"),
   grupo = "tratamento"
-) %>% knitr::kable()
-
-
-descritivaCategorica(
-  df = base,
-  variaveis = c("sexo", "ano_ingresso", "formato_ensino", "curso"),
-  grupo = "tratamento"
-) %>% knitr::kable()
+) %>% kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper(full_width = F)
 ```
 
 ---
@@ -160,7 +205,8 @@ descritivaCategorica(
 
 ## Por Tratamento
 
-```{r, echo=FALSE}
+.center[
+```{r, echo=FALSE, out.height="400px"}
 boxplot(
   df = base,
   Y = "numero_acertos",
@@ -170,6 +216,17 @@ boxplot(
   labelY = "Tratamento"
 )
 ```
+]
+
+---
+# Análise Geral
+
+## Por Tratamento
+
+### Hipótese
+
+
+$$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$
 
 ---
 # Análise Geral
@@ -177,7 +234,8 @@ boxplot(
 ## Por Tratamento
 
 ```{r, echo=FALSE}
-Anova(base, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% knitr::kable()
+Anova(base, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper()
 ```
 
 ---
@@ -185,19 +243,12 @@ Anova(base, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% knitr::kabl
 
 ## Por Formato de Ensino e Tratamento
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="70%"}
 descritivaContinua(
-  df = base, 
+  df = base,
   variaveis = c("numero_acertos", "idade", "duracao"),
   grupo = c("formato_ensino", "tratamento")
-) %>% knitr::kable()
-
-
-descritivaCategorica(
-  df = base,
-  variaveis = c("sexo", "ano_ingresso", "curso"),
-  grupo = c("tratamento", "formato_ensino")
-) %>% knitr::kable()
+)[,-(5:6)] %>% kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper(full_width = F)
 ```
 
 ---
@@ -205,7 +256,8 @@ descritivaCategorica(
 
 ## Por Formato de Ensino e Tratamento
 
-```{r, echo=FALSE, fig.align='center'}
+.center[
+```{r, echo=FALSE, out.height="400px"}
 boxplot(
   df = base,
   Y = "numero_acertos",
@@ -217,6 +269,17 @@ boxplot(
   legend = "Tratamento"
 )
 ```
+]
+
+---
+# Análise Geral
+
+## Por Tratamento
+
+### Hipótese
+
+
+$$H_0: \mu_{\text{Com música:Presencial}} = \mu_{\text{Com música:Remoto}} = \\ \mu_{\text{Sem música:Presencial}} = \mu_{\text{Sem música:Remoto}}$$
 
 ---
 # Análise Geral
@@ -224,7 +287,8 @@ boxplot(
 ## Por Formato de Ensino e Tratamento
 
 ```{r, echo=FALSE}
-Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% knitr::kable()
+Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper()
 ```
 
 ---
@@ -236,48 +300,192 @@ Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino
 TukeyHSD(Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]])$`tratamento`
 ```
 
+
+<!-- CDC -->
+
 ---
 # Análise Ciência da Computação
 
 ## Por Formato de Ensino
 
+.center[
+```{r, echo=FALSE, out.width="70%"}
+descritivaContinua(
+  df = baseCDC, 
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = "formato_ensino"
+) %>% kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper(full_width = F)
+```
+]
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino
+
+.center[
+```{r, echo=FALSE, out.height="400px"}
+boxplot(
+  df = baseCDC,
+  Y = "numero_acertos",
+  X = "formato_ensino",
+  Title = "Número de Acertos por Formato de Ensino",
+  labelX = "Número de Acertos",
+  labelY = "Formato de Ensino"
+)
+```
+]
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino
+
+### Hipótese
 
 
+$$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$
+
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino
+
+```{r, echo=FALSE}
+Anova(baseCDC, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>%
+  kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper()
+```
 
 ---
 # Análise Ciência da Computação
 
 ## Por Tratamento
 
+```{r, echo=FALSE, out.width="70%"}
+descritivaContinua(
+  df = baseCDC,
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = "tratamento"
+) %>% kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper(full_width = F)
+```
+
+---
+# Análise Ciência da Computação
+
+## Por Tratamento
+
+.center[
+```{r, echo=FALSE, out.height="400px"}
+boxplot(
+  df = baseCDC,
+  Y = "numero_acertos",
+  X = "tratamento",
+  Title = "Número de Acertos por Tratamento",
+  labelX = "Número de Acertos",
+  labelY = "Tratamento"
+)
+```
+]
+
+---
+# Análise Ciência da Computação
+
+## Por Tratamento
+
+### Hipótese
 
 
+$$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$
+
+---
+# Análise Ciência da Computação
+
+## Por Tratamento
+
+```{r, echo=FALSE}
+Anova(baseCDC, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper()
+```
 
 ---
 # Análise Ciência da Computação
 
 ## Por Formato de Ensino e Tratamento
 
+```{r, echo=FALSE, out.width="70%"}
+descritivaContinua(
+  df = baseCDC,
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = c("formato_ensino", "tratamento")
+)[,-(5:6)] %>% kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper(full_width = F)
+```
 
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino e Tratamento
+
+.center[
+```{r, echo=FALSE, out.height="400px"}
+boxplot(
+  df = baseCDC,
+  Y = "numero_acertos",
+  X = "formato_ensino",
+  grupo = "tratamento",
+  Title = "Número de Acertos por Formato de Ensino",
+  labelX = "Número de Acertos",
+  labelY = "Formato de Ensino",
+  legend = "Tratamento"
+)
+```
+]
+
+---
+# Análise Ciência da Computação
+
+## Por Tratamento
+
+### Hipótese
+
+
+$$H_0: \mu_{\text{Com música:Presencial}} = \mu_{\text{Com música:Remoto}} = \\ \mu_{\text{Sem música:Presencial}} = \mu_{\text{Sem música:Remoto}}$$
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino e Tratamento
+
+```{r, echo=FALSE}
+Anova(baseCDC, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper()
+```
+
+
+<!-- Matematica -->
 
 ---
 # Análise Matemática
 
 ## Por Formato de Ensino
 
-```{r, echo=FALSE}
+.center[
+```{r, echo=FALSE, out.width="70%"}
 descritivaContinua(
   df = baseMAT, 
   variaveis = c("numero_acertos", "idade", "duracao"),
   grupo = "formato_ensino"
-) %>% knitr::kable()
+) %>% kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper(full_width = F)
 ```
+]
 
 ---
 # Análise Matemática
 
 ## Por Formato de Ensino
 
-```{r, echo=FALSE, fig.align='center'}
+.center[
+```{r, echo=FALSE, out.height="400px"}
 boxplot(
   df = baseMAT,
   Y = "numero_acertos",
@@ -287,6 +495,18 @@ boxplot(
   labelY = "Formato de Ensino"
 )
 ```
+]
+
+---
+# Análise Matemática
+
+## Por Formato de Ensino
+
+### Hipótese
+
+
+$$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$
+
 
 ---
 # Análise Matemática
@@ -294,7 +514,8 @@ boxplot(
 ## Por Formato de Ensino
 
 ```{r, echo=FALSE}
-Anova(baseMAT, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>% knitr::kable()
+Anova(baseMAT, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>%
+  kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper()
 ```
 
 ---
@@ -302,12 +523,12 @@ Anova(baseMAT, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %
 
 ## Por Tratamento
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="70%"}
 descritivaContinua(
-  df = baseMAT, 
+  df = baseMAT,
   variaveis = c("numero_acertos", "idade", "duracao"),
   grupo = "tratamento"
-) %>% knitr::kable()
+) %>% kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper(full_width = F)
 ```
 
 ---
@@ -315,7 +536,8 @@ descritivaContinua(
 
 ## Por Tratamento
 
-```{r, echo=FALSE}
+.center[
+```{r, echo=FALSE, out.height="400px"}
 boxplot(
   df = baseMAT,
   Y = "numero_acertos",
@@ -325,6 +547,17 @@ boxplot(
   labelY = "Tratamento"
 )
 ```
+]
+
+---
+# Análise Matemática
+
+## Por Tratamento
+
+### Hipótese
+
+
+$$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$
 
 ---
 # Análise Matemática
@@ -332,7 +565,8 @@ boxplot(
 ## Por Tratamento
 
 ```{r, echo=FALSE}
-Anova(baseMAT, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% knitr::kable()
+Anova(baseMAT, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper()
 ```
 
 ---
@@ -340,20 +574,21 @@ Anova(baseMAT, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% knitr::k
 
 ## Por Formato de Ensino e Tratamento
 
-
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="70%"}
 descritivaContinua(
-  df = baseMAT, 
+  df = baseMAT,
   variaveis = c("numero_acertos", "idade", "duracao"),
   grupo = c("formato_ensino", "tratamento")
-) %>% knitr::kable()
+)[,-(5:6)] %>% kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper(full_width = F)
 ```
 
+---
 # Análise Matemática
 
 ## Por Formato de Ensino e Tratamento
 
-```{r, echo=FALSE, fig.align='center'}
+.center[
+```{r, echo=FALSE, out.height="400px"}
 boxplot(
   df = baseMAT,
   Y = "numero_acertos",
@@ -365,22 +600,28 @@ boxplot(
   legend = "Tratamento"
 )
 ```
+]
 
+---
+# Análise Matemática
+
+## Por Tratamento
+
+### Hipótese
+
+
+$$H_0: \mu_{\text{Com música:Presencial}} = \mu_{\text{Com música:Remoto}} = \\ \mu_{\text{Sem música:Presencial}} = \mu_{\text{Sem música:Remoto}}$$
+
+---
 # Análise Matemática
 
 ## Por Formato de Ensino e Tratamento
 
 ```{r, echo=FALSE}
-Anova(baseMAT, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% knitr::kable()
+Anova(baseMAT, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = 'llc') %>% kableExtra::kable_paper()
 ```
 
-# Análise Matemática
-
-## Por Formato de Ensino e Tratamento
-
-```{r, echo=FALSE}
-TukeyHSD(Anova(baseMAT, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]])$`tratamento`
-```
 
 ---
 # Conclusão

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Trabalho Experimental</title>
+    <title>Ensino Remoto X Ensino Presencial</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Guilherme Fernandes - 3398" />
-    <meta name="author" content="Júlia Fernandes - 3732" />
+    <meta name="author" content="Guilherme Fernandes Martins - 3398" />
+    <meta name="author" content="Júlia Fernandes Martins - 3732" />
     <meta name="author" content="Victor Hugo - 3510" />
     <meta name="date" content="2022-04-08" />
     <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
     <link rel="shortcut icon" href="favicon.png?" type="image/png">
     <script src="https://kit.fontawesome.com/8d6760753a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/semat.css" type="text/css" />
@@ -20,13 +22,13 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Trabalho Experimental
+# Ensino Remoto X Ensino Presencial
 ]
 .author[
-### Guilherme Fernandes - 3398
+### Guilherme Fernandes Martins - 3398
 ]
 .author[
-### Júlia Fernandes - 3732
+### Júlia Fernandes Martins - 3732
 ]
 .author[
 ### Victor Hugo - 3510
@@ -75,10 +77,14 @@ Devido a pandemia do Covid-19, fomos forçados a ter aulas remotas.
 
 No semestre atual a UFV definiu que as aulas obrigatoriamente deveriam ser presenciais.
 
+VICTOR
+
 ---
 class: center, middle, inverse
 
 Será que realmente há diferença de aprendizagem entre o presencial e o remoto?
+
+VICTOR
 
 ---
 # Materiais e Métodos
@@ -88,16 +94,159 @@ Será que realmente há diferença de aprendizagem entre o presencial e o remoto
 - Excel
 - R
 - Github
+- ANOVA
 
 ---
 # Provas
 
-EXPLICAÇÃO SOBRE AS PROVAS, COMO FORAM DECIDIDOS, SORTEIO
+- 20 questões
+- Dados anônimos
+- Disciplinas
+- Google Forms
 
 ---
-# Laboratório de Informática da Matemárica
 
-COMO ERA O AMBIENTE, FOTOS
+# Tratamento
+
+- Música
+
+---
+# Laboratório de Informática da Matemática
+
+- Ambiente controlado
+
+&lt;img src="./img/lab.jpeg" width="70%" height="70%" style="display: block; margin: auto;" /&gt;
+
+---
+# Laboratório de Informática da Matemática
+
+- Ambiente controlado
+
+&lt;img src="./img/lab2.jpeg" width="60%" height="50%" style="display: block; margin: auto;" /&gt;
+
+---
+# Laboratório de Informática da Matemática
+
+- Ambiente controlado
+
+&lt;img src="./img/lab3.jpeg" width="60%" height="50%" style="display: block; margin: auto;" /&gt;
+
+---
+# Delineamento
+
+- DBC
+  - Curso
+  - Formato do Ensino
+  
+---
+# Análise Geral
+
+## Por Formato de Ensino
+
+.center[
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; formato_ensino &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Mediana &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mínimo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Máximo &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Desvio.Padrão &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variância &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; N &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 60.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 60.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 40.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 11.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 132.35 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 55.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 55.83 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 14.88 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 221.32 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.28 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.27 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5.15 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.89 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.90 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.81 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 19.35 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 28.73 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 11.47 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 73.17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.54 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 381.69 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 13.63 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.26 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7.28 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 70.40 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17.82 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 317.61 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+# Análise Geral
+
+## Por Formato de Ensino
+
+.center[
+&lt;img src="index_files/figure-html/unnamed-chunk-7-1.png" height="400px" /&gt;
+]
+
+---
+# Análise Geral
+
+## Por Formato de Ensino
+
+### Hipótese
+
+
+`$$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$`
 
 
 ---
@@ -105,190 +254,393 @@ COMO ERA O AMBIENTE, FOTOS
 
 ## Por Formato de Ensino
 
-
-|Variável       |formato_ensino | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
-|:--------------|:--------------|-------:|-----:|------:|------:|-------------:|---------:|--:|
-|numero_acertos |Presencial     |   12.00| 12.00|   8.00|  16.00|          2.30|      5.29| 18|
-|numero_acertos |Remoto         |   11.00| 11.17|   6.00|  15.00|          2.98|      8.85| 18|
-|idade          |Presencial     |   22.00| 23.28|  21.00|  30.00|          2.27|      5.15| 18|
-|idade          |Remoto         |   20.00| 19.89|  19.00|  22.00|          0.90|      0.81| 18|
-|duracao        |Presencial     |   19.35| 28.73|  11.47|  73.17|         19.54|    381.69| 18|
-|duracao        |Remoto         |   13.63| 21.26|   7.28|  70.40|         17.82|    317.61| 18|
-
-
-
-|Variável     |Grupo      |formato_ensino |  N|
-|:------------|:----------|:--------------|--:|
-|sexo         |Feminino   |Presencial     |  2|
-|sexo         |Feminino   |Remoto         |  9|
-|sexo         |Masculino  |Presencial     | 16|
-|sexo         |Masculino  |Remoto         |  9|
-|ano_ingresso |2016       |Presencial     |  3|
-|ano_ingresso |2017       |Presencial     |  1|
-|ano_ingresso |2018       |Presencial     |  8|
-|ano_ingresso |2019       |Presencial     |  6|
-|ano_ingresso |2020       |Remoto         |  9|
-|ano_ingresso |2021       |Remoto         |  9|
-|tratamento   |Com música |Presencial     |  9|
-|tratamento   |Com música |Remoto         |  9|
-|tratamento   |Sem música |Presencial     |  9|
-|tratamento   |Sem música |Remoto         |  9|
-|curso        |CDC        |Presencial     | 12|
-|curso        |CDC        |Remoto         | 12|
-|curso        |MAT        |Presencial     |  6|
-|curso        |MAT        |Remoto         |  6|
-
----
-# Análise Geral
-
-## Por Formato de Ensino
-
-&lt;img src="index_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
-
----
-# Análise Geral
-
-## Por Formato de Ensino
-
-
-|Variável          | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
-|:-----------------|------------------:|------------------:|--------:|:-------|:-------|
-|Formato do Ensino |                  1|               6.25|    6.250|0.884   |0.354   |
-|Resíduos          |                 34|             240.50|    7.074|-       |-       |
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Graus de Liberdade &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Soma dos Quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média SQ &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor F &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Formato do Ensino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 156.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 156.250 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.884 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.354 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 34 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6012.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 176.838 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Geral
 
 ## Por Tratamento
 
-
-|Variável       |tratamento | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
-|:--------------|:----------|-------:|-----:|------:|------:|-------------:|---------:|--:|
-|numero_acertos |Com música |   13.00| 12.50|   7.00|  16.00|          2.62|      6.85| 18|
-|numero_acertos |Sem música |   11.00| 10.67|   6.00|  15.00|          2.43|      5.88| 18|
-|idade          |Com música |   21.50| 21.72|  19.00|  30.00|          2.80|      7.86| 18|
-|idade          |Sem música |   21.00| 21.44|  19.00|  26.00|          2.04|      4.14| 18|
-|duracao        |Com música |   15.80| 27.32|  10.98|  73.17|         21.94|    481.37| 18|
-|duracao        |Sem música |   18.42| 22.67|   7.28|  70.40|         15.36|    236.04| 18|
-
-
-
-|Variável       |Grupo      |tratamento |  N|
-|:--------------|:----------|:----------|--:|
-|sexo           |Feminino   |Com música |  5|
-|sexo           |Feminino   |Sem música |  6|
-|sexo           |Masculino  |Com música | 13|
-|sexo           |Masculino  |Sem música | 12|
-|ano_ingresso   |2016       |Com música |  2|
-|ano_ingresso   |2016       |Sem música |  1|
-|ano_ingresso   |2017       |Com música |  1|
-|ano_ingresso   |2018       |Com música |  3|
-|ano_ingresso   |2018       |Sem música |  5|
-|ano_ingresso   |2019       |Com música |  3|
-|ano_ingresso   |2019       |Sem música |  3|
-|ano_ingresso   |2020       |Com música |  4|
-|ano_ingresso   |2020       |Sem música |  5|
-|ano_ingresso   |2021       |Com música |  5|
-|ano_ingresso   |2021       |Sem música |  4|
-|formato_ensino |Presencial |Com música |  9|
-|formato_ensino |Presencial |Sem música |  9|
-|formato_ensino |Remoto     |Com música |  9|
-|formato_ensino |Remoto     |Sem música |  9|
-|curso          |CDC        |Com música | 12|
-|curso          |CDC        |Sem música | 12|
-|curso          |MAT        |Com música |  6|
-|curso          |MAT        |Sem música |  6|
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; tratamento &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Mediana &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mínimo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Máximo &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Desvio.Padrão &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variância &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; N &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 65.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 62.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 35.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 13.09 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 171.32 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 55.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 53.33 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 12.13 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 147.06 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 21.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.72 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.80 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7.86 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 21.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.44 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 26.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.04 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.14 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 15.80 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 27.32 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10.98 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 73.17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.94 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 481.37 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18.42 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.67 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7.28 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 70.40 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 15.36 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 236.04 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Geral
 
 ## Por Tratamento
 
-![](index_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+.center[
+&lt;img src="index_files/figure-html/unnamed-chunk-10-1.png" height="400px" /&gt;
+]
 
 ---
 # Análise Geral
 
 ## Por Tratamento
 
+### Hipótese
 
-|Variável   | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
-|:----------|------------------:|------------------:|--------:|:-------|:-------|
-|Tratamento |                  1|              30.25|   30.250|4.751   |0.036   |
-|Resíduos   |                 34|             216.50|    6.368|-       |-       |
+
+`$$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$`
+
+---
+# Análise Geral
+
+## Por Tratamento
+
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Graus de Liberdade &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Soma dos Quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média SQ &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor F &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tratamento &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 756.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 756.250 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.751 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.036 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 34 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5412.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 159.191 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Geral
 
 ## Por Formato de Ensino e Tratamento
 
-
-|Variável       |formato_ensino |tratamento | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
-|:--------------|:--------------|:----------|-------:|-----:|------:|------:|-------------:|---------:|--:|
-|numero_acertos |Presencial     |Com música |   13.00| 13.00|  10.00|  16.00|          2.06|      4.25|  9|
-|numero_acertos |Presencial     |Sem música |   11.00| 11.00|   8.00|  15.00|          2.18|      4.75|  9|
-|numero_acertos |Remoto         |Com música |   13.00| 12.00|   7.00|  15.00|          3.12|      9.75|  9|
-|numero_acertos |Remoto         |Sem música |   10.00| 10.33|   6.00|  15.00|          2.74|      7.50|  9|
-|idade          |Presencial     |Com música |   22.00| 23.56|  21.00|  30.00|          2.83|      8.03|  9|
-|idade          |Presencial     |Sem música |   22.00| 23.00|  21.00|  26.00|          1.66|      2.75|  9|
-|idade          |Remoto         |Com música |   20.00| 19.89|  19.00|  22.00|          1.05|      1.11|  9|
-|idade          |Remoto         |Sem música |   20.00| 19.89|  19.00|  21.00|          0.78|      0.61|  9|
-|duracao        |Presencial     |Com música |   16.13| 32.08|  11.47|  73.17|         26.09|    680.91|  9|
-|duracao        |Presencial     |Sem música |   23.82| 25.39|  14.02|  45.12|         10.25|    105.04|  9|
-|duracao        |Remoto         |Com música |   15.38| 22.57|  10.98|  56.32|         17.06|    291.18|  9|
-|duracao        |Remoto         |Sem música |   13.58| 19.94|   7.28|  70.40|         19.49|    379.86|  9|
-
-
-
-|Variável     |Grupo     |tratamento |formato_ensino |  N|
-|:------------|:---------|:----------|:--------------|--:|
-|sexo         |Feminino  |Com música |Presencial     |  1|
-|sexo         |Feminino  |Com música |Remoto         |  4|
-|sexo         |Feminino  |Sem música |Presencial     |  1|
-|sexo         |Feminino  |Sem música |Remoto         |  5|
-|sexo         |Masculino |Com música |Presencial     |  8|
-|sexo         |Masculino |Com música |Remoto         |  5|
-|sexo         |Masculino |Sem música |Presencial     |  8|
-|sexo         |Masculino |Sem música |Remoto         |  4|
-|ano_ingresso |2016      |Com música |Presencial     |  2|
-|ano_ingresso |2016      |Sem música |Presencial     |  1|
-|ano_ingresso |2017      |Com música |Presencial     |  1|
-|ano_ingresso |2018      |Com música |Presencial     |  3|
-|ano_ingresso |2018      |Sem música |Presencial     |  5|
-|ano_ingresso |2019      |Com música |Presencial     |  3|
-|ano_ingresso |2019      |Sem música |Presencial     |  3|
-|ano_ingresso |2020      |Com música |Remoto         |  4|
-|ano_ingresso |2020      |Sem música |Remoto         |  5|
-|ano_ingresso |2021      |Com música |Remoto         |  5|
-|ano_ingresso |2021      |Sem música |Remoto         |  4|
-|curso        |CDC       |Com música |Presencial     |  6|
-|curso        |CDC       |Com música |Remoto         |  6|
-|curso        |CDC       |Sem música |Presencial     |  6|
-|curso        |CDC       |Sem música |Remoto         |  6|
-|curso        |MAT       |Com música |Presencial     |  3|
-|curso        |MAT       |Com música |Remoto         |  3|
-|curso        |MAT       |Sem música |Presencial     |  3|
-|curso        |MAT       |Sem música |Remoto         |  3|
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; formato_ensino &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; tratamento &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mediana &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Máximo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Desvio.Padrão &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variância &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; N &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 65.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 80.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.31 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 106.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 55.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.90 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 118.75 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 65.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 15.61 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 243.75 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 50.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 13.69 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 187.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.83 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 8.03 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 26.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1.66 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.75 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1.05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.11 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.78 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.61 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 16.13 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 73.17 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 26.09 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 680.91 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.82 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 45.12 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 105.04 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 15.38 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 56.32 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 17.06 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 291.18 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 13.58 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 70.40 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 19.49 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 379.86 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Geral
 
 ## Por Formato de Ensino e Tratamento
 
-&lt;img src="index_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+.center[
+&lt;img src="index_files/figure-html/unnamed-chunk-13-1.png" height="400px" /&gt;
+]
+
+---
+# Análise Geral
+
+## Por Tratamento
+
+### Hipótese
+
+
+`$$H_0: \mu_{\text{Com música:Presencial}} = \mu_{\text{Com música:Remoto}} = \\ \mu_{\text{Sem música:Presencial}} = \mu_{\text{Sem música:Remoto}}$$`
 
 ---
 # Análise Geral
 
 ## Por Formato de Ensino e Tratamento
 
-
-|Variável                       | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
-|:------------------------------|------------------:|------------------:|--------:|:-------|:-------|
-|Formato do Ensino              |                  1|               6.25|    6.250|0.952   |0.336   |
-|Tratamento                     |                  1|              30.25|   30.250|4.61    |0.039   |
-|Formato do Ensino : Tratamento |                  1|               0.25|    0.250|0.038   |0.846   |
-|Resíduos                       |                 32|             210.00|    6.562|-       |-       |
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Graus de Liberdade &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Soma dos Quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média SQ &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor F &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Formato do Ensino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 156.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 156.250 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.952 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.336 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tratamento &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 756.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 756.250 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.61 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.039 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Formato do Ensino : Tratamento &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6.25 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6.250 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.038 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.846 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 32 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5250.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 164.062 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Geral
@@ -297,31 +649,629 @@ COMO ERA O AMBIENTE, FOTOS
 
 
 ```
-##                            diff       lwr         upr      p adj
-## Sem música-Com música -1.833333 -3.572696 -0.09397036 0.03947468
+##                            diff       lwr        upr      p adj
+## Sem música-Com música -9.166667 -17.86348 -0.4698518 0.03947468
 ```
+
+
+&lt;!-- CDC --&gt;
 
 ---
 # Análise Ciência da Computação
 
 ## Por Formato de Ensino
 
+.center[
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; formato_ensino &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Mediana &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mínimo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Máximo &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Desvio.Padrão &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variância &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; N &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 60.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 60.42 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 45.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 8.11 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 65.72 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 55.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 55.42 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 14.53 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 211.17 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 23.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 24.08 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.39 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5.72 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20.08 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 21.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.67 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.45 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 16.23 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17.63 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 11.47 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 27.07 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.60 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.14 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12.83 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 12.81 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7.28 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 17.58 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.70 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7.31 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino
+
+.center[
+&lt;img src="index_files/figure-html/unnamed-chunk-17-1.png" height="400px" /&gt;
+]
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino
+
+### Hipótese
 
 
+`$$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$`
+
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino
+
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Graus de Liberdade &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Soma dos Quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média SQ &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor F &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Formato do Ensino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 150.000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 150.000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.083 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.309 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3045.833 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 138.447 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Ciência da Computação
 
 ## Por Tratamento
 
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; tratamento &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Mediana &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mínimo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Máximo &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Desvio.Padrão &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variância &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; N &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 62.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 60.42 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 35.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10.76 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 115.72 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 55.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 55.42 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 12.70 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 161.17 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 21.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3.24 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10.52 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 21.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 26.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.09 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.36 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 14.52 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 14.07 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10.98 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 17.53 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.20 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.82 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 15.18 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 16.36 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7.28 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 27.07 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5.78 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 33.43 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Análise Ciência da Computação
+
+## Por Tratamento
+
+.center[
+&lt;img src="index_files/figure-html/unnamed-chunk-20-1.png" height="400px" /&gt;
+]
+
+---
+# Análise Ciência da Computação
+
+## Por Tratamento
+
+### Hipótese
 
 
+`$$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$`
+
+---
+# Análise Ciência da Computação
+
+## Por Tratamento
+
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Graus de Liberdade &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Soma dos Quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média SQ &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor F &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tratamento &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 150.000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 150.000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.083 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.309 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3045.833 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 138.447 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Ciência da Computação
 
 ## Por Formato de Ensino e Tratamento
 
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; formato_ensino &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; tratamento &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mediana &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Máximo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Desvio.Padrão &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variância &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; N &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 62.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 70.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5.24 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 27.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 55.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.33 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 106.67 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 60.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 14.72 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 216.67 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 52.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 15.08 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 227.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 30.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3.08 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 26.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1.63 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.67 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.75 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.57 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.52 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.27 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 15.38 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17.53 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.08 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.34 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.35 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 27.07 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 5.07 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 25.70 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 12.83 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 15.72 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2.04 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 12.51 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17.58 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3.41 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 11.64 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino e Tratamento
+
+.center[
+&lt;img src="index_files/figure-html/unnamed-chunk-23-1.png" height="400px" /&gt;
+]
+
+---
+# Análise Ciência da Computação
+
+## Por Tratamento
+
+### Hipótese
+
+
+`$$H_0: \mu_{\text{Com música:Presencial}} = \mu_{\text{Com música:Remoto}} = \\ \mu_{\text{Sem música:Presencial}} = \mu_{\text{Sem música:Remoto}}$$`
+
+---
+# Análise Ciência da Computação
+
+## Por Formato de Ensino e Tratamento
+
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Graus de Liberdade &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Soma dos Quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média SQ &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor F &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Formato do Ensino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 150.000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 150.000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.037 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.321 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tratamento &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 150.000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 150.000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.037 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.321 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Formato do Ensino : Tratamento &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 4.167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.029 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.867 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2891.667 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 144.583 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;!-- Matematica --&gt;
+
+---
+# Análise Matemática
+
+## Por Formato de Ensino
+
+.center[
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; formato_ensino &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Mediana &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mínimo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Máximo &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Desvio.Padrão &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variância &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; N &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 55.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 59.17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 40.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17.44 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 304.17 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 55.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 56.67 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 40.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 16.93 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 286.67 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.67 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.52 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.27 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.22 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.50 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 50.23 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 50.94 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.82 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 73.17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.06 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 363.23 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 35.64 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 38.16 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10.62 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 70.40 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.45 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 549.76 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+# Análise Matemática
+
+## Por Formato de Ensino
+
+.center[
+&lt;img src="index_files/figure-html/unnamed-chunk-26-1.png" height="400px" /&gt;
+]
+
+---
+# Análise Matemática
+
+## Por Formato de Ensino
+
+### Hipótese
+
+
+`$$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$`
 
 
 ---
@@ -329,116 +1279,394 @@ COMO ERA O AMBIENTE, FOTOS
 
 ## Por Formato de Ensino
 
-
-|Variável       |formato_ensino | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
-|:--------------|:--------------|-------:|-----:|------:|------:|-------------:|---------:|--:|
-|numero_acertos |Presencial     |   11.00| 11.83|   8.00|  16.00|          3.49|     12.17|  6|
-|numero_acertos |Remoto         |   11.00| 11.33|   8.00|  15.00|          3.39|     11.47|  6|
-|idade          |Presencial     |   22.00| 21.67|  21.00|  22.00|          0.52|      0.27|  6|
-|idade          |Remoto         |   19.00| 19.50|  19.00|  22.00|          1.22|      1.50|  6|
-|duracao        |Presencial     |   50.23| 50.94|  23.82|  73.17|         19.06|    363.23|  6|
-|duracao        |Remoto         |   35.64| 38.16|  10.62|  70.40|         23.45|    549.76|  6|
-
----
-# Análise Matemática
-
-## Por Formato de Ensino
-
-&lt;img src="index_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
-
----
-# Análise Matemática
-
-## Por Formato de Ensino
-
-
-|Variável          | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
-|:-----------------|------------------:|------------------:|--------:|:-------|:-------|
-|Formato do Ensino |                  1|              0.750|    0.750|0.063   |0.806   |
-|Resíduos          |                 10|            118.167|   11.817|-       |-       |
-
----
-# Análise Matemática
-
-## Por Tratamento
-
-
-|Variável       |tratamento | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
-|:--------------|:----------|-------:|-----:|------:|------:|-------------:|---------:|--:|
-|numero_acertos |Com música |   15.00| 13.33|   8.00|  16.00|          3.44|     11.87|  6|
-|numero_acertos |Sem música |    9.00|  9.83|   8.00|  13.00|          2.14|      4.57|  6|
-|idade          |Com música |   21.50| 20.83|  19.00|  22.00|          1.47|      2.17|  6|
-|idade          |Sem música |   20.00| 20.33|  19.00|  22.00|          1.51|      2.27|  6|
-|duracao        |Com música |   55.83| 53.83|  20.32|  73.17|         19.02|    361.81|  6|
-|duracao        |Sem música |   30.96| 35.27|  10.62|  70.40|         21.04|    442.85|  6|
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Graus de Liberdade &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Soma dos Quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média SQ &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor F &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Formato do Ensino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18.750 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 18.750 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.063 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.806 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2954.167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 295.417 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Matemática
 
 ## Por Tratamento
 
-![](index_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; tratamento &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Mediana &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mínimo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Máximo &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Desvio.Padrão &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variância &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; N &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 66.67 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 40.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17.22 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 296.67 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 45.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 49.17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 40.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 65.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10.68 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 114.17 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 21.50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20.83 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.47 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.17 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20.33 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.51 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.27 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 55.83 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 53.83 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20.32 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 73.17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.02 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 361.81 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 30.96 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 35.27 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10.62 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 70.40 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21.04 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 442.85 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Matemática
 
 ## Por Tratamento
 
+.center[
+&lt;img src="index_files/figure-html/unnamed-chunk-29-1.png" height="400px" /&gt;
+]
 
-|Variável   | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
-|:----------|------------------:|------------------:|--------:|:-------|:-------|
-|Tratamento |                  1|             36.750|   36.750|4.473   |0.061   |
-|Resíduos   |                 10|             82.167|    8.217|-       |-       |
+---
+# Análise Matemática
+
+## Por Tratamento
+
+### Hipótese
+
+
+`$$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$`
+
+---
+# Análise Matemática
+
+## Por Tratamento
+
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Graus de Liberdade &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Soma dos Quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média SQ &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor F &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tratamento &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 918.750 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 918.750 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4.473 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.061 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2054.167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 205.417 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 # Análise Matemática
 
 ## Por Formato de Ensino e Tratamento
 
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; formato_ensino &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; tratamento &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Mediana &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Máximo &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Desvio.Padrão &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Variância &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; N &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 80.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 80.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 17.32 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 300.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 45.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 60.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.41 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 108.33 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20.21 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 408.33 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; numero_acertos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 45.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 65.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 13.23 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 175.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.58 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.33 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.58 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.33 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1.73 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; idade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 19.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.00 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 70.13 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 73.17 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.54 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 91.04 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Presencial &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 38.10 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 45.12 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.85 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 117.82 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Com música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 47.68 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 56.32 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18.79 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 353.24 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; duracao &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Remoto &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; Sem música &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 23.60 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 70.40 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 31.45 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 988.81 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
-
-|Variável       |formato_ensino |tratamento | Mediana| Média| Mínimo| Máximo| Desvio.Padrão| Variância|  N|
-|:--------------|:--------------|:----------|-------:|-----:|------:|------:|-------------:|---------:|--:|
-|numero_acertos |Presencial     |Com música |   16.00| 14.00|  10.00|  16.00|          3.46|     12.00|  3|
-|numero_acertos |Presencial     |Sem música |    9.00|  9.67|   8.00|  12.00|          2.08|      4.33|  3|
-|numero_acertos |Remoto         |Com música |   15.00| 12.67|   8.00|  15.00|          4.04|     16.33|  3|
-|numero_acertos |Remoto         |Sem música |    9.00| 10.00|   8.00|  13.00|          2.65|      7.00|  3|
-|idade          |Presencial     |Com música |   22.00| 21.67|  21.00|  22.00|          0.58|      0.33|  3|
-|idade          |Presencial     |Sem música |   22.00| 21.67|  21.00|  22.00|          0.58|      0.33|  3|
-|idade          |Remoto         |Com música |   19.00| 20.00|  19.00|  22.00|          1.73|      3.00|  3|
-|idade          |Remoto         |Sem música |   19.00| 19.00|  19.00|  19.00|          0.00|      0.00|  3|
-|duracao        |Presencial     |Com música |   70.13| 66.21|  55.33|  73.17|          9.54|     91.04|  3|
-|duracao        |Presencial     |Sem música |   38.10| 35.68|  23.82|  45.12|         10.85|    117.82|  3|
-|duracao        |Remoto         |Com música |   47.68| 41.44|  20.32|  56.32|         18.79|    353.24|  3|
-|duracao        |Remoto         |Sem música |   23.60| 34.87|  10.62|  70.40|         31.45|    988.81|  3|
-
+---
 # Análise Matemática
 
 ## Por Formato de Ensino e Tratamento
 
-&lt;img src="index_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+.center[
+&lt;img src="index_files/figure-html/unnamed-chunk-32-1.png" height="400px" /&gt;
+]
 
+---
+# Análise Matemática
+
+## Por Tratamento
+
+### Hipótese
+
+
+`$$H_0: \mu_{\text{Com música:Presencial}} = \mu_{\text{Com música:Remoto}} = \\ \mu_{\text{Sem música:Presencial}} = \mu_{\text{Sem música:Remoto}}$$`
+
+---
 # Análise Matemática
 
 ## Por Formato de Ensino e Tratamento
 
+&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variável &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Graus de Liberdade &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Soma dos Quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Média SQ &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor F &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; P Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Formato do Ensino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 18.750 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 18.750 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.076 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.79 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tratamento &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 918.750 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 918.750 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3.706 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.09 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Formato do Ensino : Tratamento &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 52.083 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 52.083 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.21 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.659 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1983.333 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 247.917 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
-|Variável                       | Graus de Liberdade| Soma dos Quadrados| Média SQ|Valor F |P Valor |
-|:------------------------------|------------------:|------------------:|--------:|:-------|:-------|
-|Formato do Ensino              |                  1|              0.750|    0.750|0.076   |0.79    |
-|Tratamento                     |                  1|             36.750|   36.750|3.706   |0.09    |
-|Formato do Ensino : Tratamento |                  1|              2.083|    2.083|0.21    |0.659   |
-|Resíduos                       |                  8|             79.333|    9.917|-       |-       |
-
-# Análise Matemática
-
-## Por Formato de Ensino e Tratamento
-
-
-```
-##                       diff       lwr       upr     p adj
-## Sem música-Com música -3.5 -7.692589 0.6925892 0.0904062
-```
 
 ---
 # Conclusão

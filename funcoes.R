@@ -93,6 +93,25 @@ Anova <- function(df, Formula, label) {
   return(list(fit, fitSumm))
 }
 
+pressupostos <- function(fit, tratamento = NULL, bloco = NULL, df) {
+  car::qqPlot(fit$residuals, pch=19, col.lines="darkred", id=F)
+  print(shapiro.test(fit$residuals))
+  if (!is.null(tratamento)) {
+    plot(as.numeric(tratamento),fit$residuals,pch=19, 
+         main = "Resíduo x Tratamentos", xlab='tratamento', ylab='resíduos')
+    abline(h=0)
+    
+    print(bartlett.test(fit$residuals ~ tratamento, data=df))
+  }
+  if (!is.null(bloco)) {
+    plot(as.numeric(bloco),fit$residuals,pch=19, 
+         main='Resíduo x Blocos', xlab='bloco', ylab='resíduos')
+    abline(h=0)
+    
+    print(artlett.test(fit$residuals ~ bloco, data=df))
+  }
+}
+
 
 boxplot <- function(df, Y, X, grupo = NULL, Title = NULL, labelY = Y, labelX = X, legend = grupo) {
   if (is.null(Title)) Title <- ""

@@ -16,6 +16,7 @@ table(baseCDC$formato_ensino, baseCDC$tratamento)
 rm(possiveis, retirar)
 
 baseCDC <- baseCDC %>% dplyr::mutate_at(c(1, 3, 4, 5, 8:28), as.factor)
+baseCDC$numero_acertos <- (baseCDC$numero_acertos/20)*100
 
 ##################
 
@@ -53,6 +54,7 @@ baseMAT$numero_acertos <- baseQuestoes$soma
 rm(baseQuestoes)
 
 baseMAT <- baseMAT %>% dplyr::mutate_at(c(1, 3, 4, 5, 8:28), as.factor)
+baseMAT$numero_acertos <- (baseMAT$numero_acertos/20)*100
 
 ###################
 
