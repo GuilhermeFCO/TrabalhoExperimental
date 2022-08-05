@@ -19,205 +19,197 @@ source("../funcoes.R")
 source("../leituraBase.R")
 ```
 
-```{r, echo=FALSE, fig.align='center'}
-base %>% head() %>% knitr::kable()
-```
+# Introdução
 
+<p style="text-align: justify">
+
+Muito se discute sobre como a pandemia do COVID-19 afetou a maneira como o ser humano vivia. Trabalhadores, estudantes e crianças tiveram suas rotinas interrompidas e precisaram adaptar-se à situação. No caso dos estudantes e professores, houveram mudanças consideráveis no meio de ensino e consequentemente no método de ensino.
+	De aulas presenciais e provas físicas no ensino presencial, os estudantes passaram a ter aulas gravadas ou síncronas e provas online no ensino remoto. Tais provas eram realizadas em plataformas digitais, bem como as plataformas oferecidas pela instituição de ensino, Google Forms, entre outras que surgiram durante a pandemia, que demandava um mínimo de conhecimento de uso da plataforma e uma conexão estável para realizar e enviar adequadamente a avaliação.
+	À medida que a pandemia foi normalizando, a vida retomava ao normal e as instituições de ensino começaram, gradualmente, a retomar as atividades presenciais, principalmente as Universidades Federais em 2022. Porém 2 anos haviam passado e os estudantes e professores já estavam acostumados com a rotina toda sendo realizada dentro de casa e alguns alegavam que o ensino deveria continuar remoto.
+	Afirmar qual dos métodos de ensino é melhor é uma tarefa árdua e devido a pandemia ainda não ter finalizado, de fato, em todo o mundo, fica difícil mensurar. Mas será que realmente há diferença de aprendizagem entre o presencial e o remoto?
+O objetivo deste relatório é apresentar o experimento elaborado e realizado, visando demonstrar se existe, de fato, alguma diferença entre ambos os métodos de ensino, avaliando o rendimento dos alunos por meio de avaliações das disciplinas iniciais dos cursos.
+</p>
+
+# Desenvolvimento
+
+<p style="text-align: justify">
+Para a realização do experimento 36 estudantes da Universidade Federal de Viçosa - campus Florestal se disponibilizaram a participar do mesmo de maneira voluntária, sendo 24 do curso Bacharelado em Ciência da Computação e 12 do curso Licenciatura em Matemática. Tais estudantes foram submetidos a uma prova de 20 questões referentes às matérias específicas do ciclo básico de ambas as graduações, sendo o ciclo básico considerado como as matérias do 1º e 2º período. Vale lembrar que dos 36 estudantes selecionados todos aprovaram nas matérias selecionadas e metade do grupo havia feito presencialmente, enquanto a outra metade realizou de forma remota.
+</p>
+
+# Materiais e Métodos
+	
+<p style="text-align: justify">
+
+Os materiais e métodos utilizados foram:
+
+- Google Forms: realização das provas;
+- Laboratório de Informática da Matemática: local controlado para realização das provas;
+- Excel: organização para a aplicação das provas para os estudantes e tratamento da base;
+- R: ambiente de desenvolvimento utilizado para efetuar as análises, construção dos slides apresentados em aula no dia 04/08 e construção deste relatório;
+- Github: ambiente para versionamento dos arquivos do R;
+- ANOVA: método utilizado para analisar a base de dados obtida com a realização das provas.
+
+</p>
+
+# Provas
+
+<p style="text-align: justify">
+
+As provas realizadas foram o meio que os autores criaram para coletar determinadas características dos estudantes selecionados, além de avaliar o rendimento e efetuar as análises. Para a Ciência da Computação, as matérias selecionadas foram: 
+
+- Programação
+- Matemática Discreta
+- Introdução aos Sistemas Lógicos Digitais
+- Algoritmos e Estruturas de Dados I.
+
+Enquanto que para a Matemática, foram:
+
+- Matemática Elementar
+- Resolução de Problemas
+- Introdução à Algebra
+- Fundamentos de Geometria Plana e Desenho Geométrico
+
+As características coletadas foram:
+
+- Sexo
+- Idade
+- Curso
+- Ano de ingresso na universidade
+- Formato de conclusão das disciplinas: Presencial ou Remoto
+- Tratamento: Com música ou Sem música. Será explicado em melhores detalhes na subseção 2.3
+- Resposta das 20 questões
+- Horário de início
+- Horário de finalização
+
+
+	A coleta das características permitiu a construção de uma base de dados no software R, facilitando e possibilitando as análises. Além dessas características, a base de dados contém uma coluna para cada questão, indicando se o aluno acertou ou errou a questão correspondente.
+	Além disso, foi necessário o controle da realização da prova, de modo a evitar colas ou a não realização do tratamento atribuído, e por esse motivo, as provas foram realizadas no Laboratório da Matemática, localizado na Universidade Federal de Viçosa - campus Florestal, com horário previamente marcado por meio da plataforma Doodle.
+	Vale ressaltar que 5 alunos não puderam comparecer no laboratório nos horários em que algum dos autores estivesse lá presente e para contornar a situação, esses alunos fizeram suas provas na casa de 1 dos autores, com a mesma supervisão recebida no laboratório.
+</p>
+
+
+
+
+# Tratamentos
+
+<p style="text-align: justify">
+Para definir os tratamentos, o grupo decidiu atribuir um fator controlado aos estudantes que realizaram as provas:
+
+- Efetuar a prova com música
+- Efetuar a prova sem música
+	
+	Dos 18 alunos que concluíram as matérias de forma presencial, 9 realizaram com música e o restante sem música. O mesmo foi atribuído aos alunos que concluíram as matérias de forma remota. Sendo assim, com o bloco Presencial e Remoto e os fatores controlados determinados, têm-se os seguintes tratamentos para o experimento em questão:
+
+- Remoto, com música
+- Remoto, sem música
+- Presencial, com música
+- Presencial, sem música
+
+</p>
+
+# Delineamento
+
+<p style="text-align: justify">
+
+De acordo com os tratamentos mencionados anteriormente, o grupo utilizou, então, um delineamento em blocos casualizados (DBC), obtendo os seguintes blocos:
+
+
+
+- Alunos do curso de Licenciatura em Matemática que fizeram o 1º e o 2º período de forma online.
+- Alunos do curso de Licenciatura em Matemática que fizeram o 1º e o 2º período de forma presencial.
+- Alunos do curso de Ciência da Computação que fizeram o 1º e o 2º período de forma online.
+- Alunos do curso de Ciência da Computação que fizeram o 1º e o 2º período de forma presencial.
+
+</p>
 
 # Análise Geral
 
-## Por Formato de Ensino
+	TODA A ANÁLISE GERAL
 
-```{r, echo=FALSE}
-descritivaContinua(
-  df = base, 
-  variaveis = c("numero_acertos", "idade", "duracao"),
-  grupo = "formato_ensino"
-) %>% knitr::kable()
+# Análise Ciência da Computação
 
-descritivaCategorica(
-  df = base,
-  variaveis = c("sexo", "ano_ingresso", "tratamento", "curso"),
-  grupo = "formato_ensino"
-) %>% knitr::kable()
-```
+<p style="text-align: justify">
 
-```{r, echo=FALSE, fig.align='center'}
-boxplot(
-  df = base,
-  Y = "numero_acertos",
-  X = "formato_ensino",
-  Title = "Número de Acertos por Formato de Ensino",
-  labelX = "Número de Acertos",
-  labelY = "Formato de Ensino"
-)
-```
-
-```{r, echo=FALSE}
-Anova(base, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>% knitr::kable()
-```
-
-
-## Por Tratamento
-
-```{r, echo=FALSE}
-descritivaContinua(
-  df = base, 
-  variaveis = c("numero_acertos", "idade", "duracao"),
-  grupo = "tratamento"
-) %>% knitr::kable()
-
-
-descritivaCategorica(
-  df = base,
-  variaveis = c("sexo", "ano_ingresso", "formato_ensino", "curso"),
-  grupo = "tratamento"
-) %>% knitr::kable()
-```
-
-```{r, echo=FALSE}
-boxplot(
-  df = base,
-  Y = "numero_acertos",
-  X = "tratamento",
-  Title = "Número de Acertos por Tratamento",
-  labelX = "Número de Acertos",
-  labelY = "Tratamento"
-)
-```
-
-```{r, echo=FALSE}
-Anova(base, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% knitr::kable()
-```
-
-## Iteração
-
-```{r, echo=FALSE}
-descritivaContinua(
-  df = base, 
-  variaveis = c("numero_acertos", "idade", "duracao"),
-  grupo = c("formato_ensino", "tratamento")
-) %>% knitr::kable()
-
-
-descritivaCategorica(
-  df = base,
-  variaveis = c("sexo", "ano_ingresso", "curso"),
-  grupo = c("tratamento", "formato_ensino")
-) %>% knitr::kable()
-```
-
-```{r, echo=FALSE, fig.align='center'}
-boxplot(
-  df = base,
-  Y = "numero_acertos",
-  X = "formato_ensino",
-  grupo = "tratamento",
-  Title = "Número de Acertos por Formato de Ensino",
-  labelX = "Número de Acertos",
-  labelY = "Formato de Ensino",
-  legend = "Tratamento"
-)
-```
-
-```{r, echo=FALSE}
-Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% knitr::kable()
-```
-
-```{r, echo=FALSE}
-# TukeyHSD(Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]])$`formato_ensino:tratamento`
-```
-
-```{r, echo=FALSE}
-TukeyHSD(Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]])$`tratamento`
-```
-
-# Análise CDC
-
-
-
-# Análise Matemática
+Assim como feita a análise considerando ambos os cursos, foi feita uma análise separada para cada curso dos alunos selecionados, de modo a proporcionar conclusões para cada curso individualmente. Além disso, assim como na análise geral, as análises foram separadas por: formato de ensino, tratamento e formato de ensino e tratamento.
+</p>
 
 ## Por Formato de Ensino
 
-```{r, echo=FALSE}
-descritivaContinua(
-  df = baseMAT, 
-  variaveis = c("numero_acertos", "idade", "duracao"),
-  grupo = "formato_ensino"
-) %>% knitr::kable()
-```
+<p style="text-align: justify">
 
-```{r, echo=FALSE, fig.align='center'}
-boxplot(
-  df = baseMAT,
-  Y = "numero_acertos",
-  X = "formato_ensino",
-  Title = "Número de Acertos por Formato de Ensino",
-  labelX = "Número de Acertos",
-  labelY = "Formato de Ensino"
-)
-```
-
-```{r, echo=FALSE}
-Anova(baseMAT, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>% knitr::kable()
-```
+Realizando a análise considerando o formato de ensino, tem-se:
 
 
-## Por Tratamento
 
-```{r, echo=FALSE}
-descritivaContinua(
-  df = baseMAT, 
-  variaveis = c("numero_acertos", "idade", "duracao"),
-  grupo = "tratamento"
-) %>% knitr::kable()
-```
-
-```{r, echo=FALSE}
-boxplot(
-  df = baseMAT,
-  Y = "numero_acertos",
-  X = "tratamento",
-  Title = "Número de Acertos por Tratamento",
-  labelX = "Número de Acertos",
-  labelY = "Tratamento"
-)
-```
+DESCRITIVAS
 
 
-```{r, echo=FALSE}
-Anova(baseMAT, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% knitr::kable()
-```
 
-## Iteração
 
-```{r, echo=FALSE}
-descritivaContinua(
-  df = baseMAT, 
-  variaveis = c("numero_acertos", "idade", "duracao"),
-  grupo = c("formato_ensino", "tratamento")
-) %>% knitr::kable()
-```
 
-```{r, echo=FALSE, fig.align='center'}
-boxplot(
-  df = baseMAT,
-  Y = "numero_acertos",
-  X = "formato_ensino",
-  grupo = "tratamento",
-  Title = "Número de Acertos por Formato de Ensino",
-  labelX = "Número de Acertos",
-  labelY = "Formato de Ensino",
-  legend = "Tratamento"
-)
-```
+Observando as descritivas, assim como na análise anterior, tem-se o presencial com aproximadamente 60% e o remoto com aproximadamente 55% para os valores de média e mediana da porcentagem de acertos obtida.
+Apesar de uma diferença de aproximadamente 5%, ainda assim não são valores tão consideráveis para notar uma diferença significativa
 
-```{r, echo=FALSE}
-Anova(baseMAT, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% knitr::kable()
-```
 
-```{r, echo=FALSE}
-TukeyHSD(Anova(baseMAT, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]])$`tratamento`
-```
 
+
+A hipótese nula então é a seguinte: COLOCAR A HIPÓTESE DO SLIDE
+ANOVA
+
+
+
+
+Como tem-se distribuições, percebidas nas descritivas e pelo boxplot, bem semelhantes e pelo valor-p obtido com a ANOVA, não foi possível rejeitar a hipótese nula
+Vale lembrar que o nível de significância está definido em 5% para a realização de todo o experimento
+</p>
+
+### Por Tratamento
+
+Realizando a análise considerando o tratamento, tem-se:
+
+
+
+Descritivas
+
+
+
+Observando as descritivas, principalmente voltando-se para a média e a mediana, tem-se o tratamento “com música” com aproximadamente 60% e o tratamento “sem música” com aproximadamente 55% para os valores de média e mediana da porcentagem de acertos obtida.
+Apesar de uma diferença de aproximadamente 5%, ainda assim não são valores tão consideráveis para notar uma diferença significativa
+
+
+
+Hipótese
+A hipótese nula então é a seguinte: COLOCAR A HIPÓTESE DO SLIDE
+ANOVA
+
+
+
+Como tem-se distribuições, percebidas nas descritivas e pelo 
+boxplot, bem semelhantes e pelo valor-p obtido com a ANOVA, não foi possível rejeitar a hipótese nula
+
+### Por Formato de Ensino e Tratamento
+
+Realizando a análise considerando o formato de ensino e o tratamento, tem-se:
+
+
+
+
+
+Descritivas
+
+
+
+
+
+
+
+
+
+
+
+Observando as descritivas, voltando-se para a mediana, é possível observar que os estudantes que realizaram a prova com música tiveram maiores valores de acerto em relação aos estudantes que não ouviram música, independente se foi ensino remoto e presencial. Além disso, o ensino presencial obteve resultados com valores maiores, mas com uma diferença muito pequena, sendo de menos de 5%
+Observando o boxplot, pode-se observar a nítida diferença entre aqueles que realizaram ouvindo música
+Hipótese
+A hipótese nula então é a seguinte: COLOCAR A HIPÓTESE DO SLIDE
+ANOVA
+O boxplot pode levar a entender que considerando o tratamento e o formato de ensino, a hipótese nula será rejeitada, porém, efetuando a ANOVA, pode-se perceber com os p-valores ainda continuam altos o suficientes se comparados com o nível de significância pré-determinado
