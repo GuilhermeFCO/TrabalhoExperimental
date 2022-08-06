@@ -9,8 +9,14 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 source("../funcoes.R")
+
+juntar <- function(c) {
+  x <- ""
+  for (i in 1:length(c)) x <- paste0(x, c[i])
+  return(x)
+}
 ```
 
 # Base de dados
@@ -56,6 +62,7 @@ Os materiais e métodos utilizados foram:
 <p style="text-align: justify">
 
 As provas realizadas foram o meio que os autores criaram para coletar determinadas características dos estudantes selecionados, além de avaliar o rendimento e efetuar as análises. Para a Ciência da Computação, as matérias selecionadas foram: 
+</p>
 
 - Programação
 - Matemática Discreta
@@ -81,135 +88,462 @@ As características coletadas foram:
 - Horário de início
 - Horário de finalização
 
+<p style="text-align: justify">
 
-	A coleta das características permitiu a construção de uma base de dados no software R, facilitando e possibilitando as análises. Além dessas características, a base de dados contém uma coluna para cada questão, indicando se o aluno acertou ou errou a questão correspondente.
-	Além disso, foi necessário o controle da realização da prova, de modo a evitar colas ou a não realização do tratamento atribuído, e por esse motivo, as provas foram realizadas no Laboratório da Matemática, localizado na Universidade Federal de Viçosa - campus Florestal, com horário previamente marcado por meio da plataforma Doodle.
-	Vale ressaltar que 5 alunos não puderam comparecer no laboratório nos horários em que algum dos autores estivesse lá presente e para contornar a situação, esses alunos fizeram suas provas na casa de 1 dos autores, com a mesma supervisão recebida no laboratório.
+A coleta das características permitiu a construção de uma base de dados no software R, facilitando e possibilitando as análises. Além dessas características, a base de dados contém uma coluna para cada questão, indicando se o aluno acertou ou errou a questão correspondente.
+Além disso, foi necessário o controle da realização da prova, de modo a evitar colas ou a não realização do tratamento atribuído, e por esse motivo, as provas foram realizadas no Laboratório da Matemática, localizado na Universidade Federal de Viçosa - campus Florestal, com horário previamente marcado por meio da plataforma Doodle.
+Vale ressaltar que 5 alunos não puderam comparecer no laboratório nos horários em que algum dos autores estivesse lá presente e para contornar a situação, esses alunos fizeram suas provas na casa de 1 dos autores, com a mesma supervisão recebida no laboratório.
 </p>
-
-
-
 
 # Tratamentos
 
 <p style="text-align: justify">
 Para definir os tratamentos, o grupo decidiu atribuir um fator controlado aos estudantes que realizaram as provas:
+</p>
 
 - Efetuar a prova com música
 - Efetuar a prova sem música
 	
-	Dos 18 alunos que concluíram as matérias de forma presencial, 9 realizaram com música e o restante sem música. O mesmo foi atribuído aos alunos que concluíram as matérias de forma remota. Sendo assim, com o bloco Presencial e Remoto e os fatores controlados determinados, têm-se os seguintes tratamentos para o experimento em questão:
+<p style="text-align: justify">
+Dos 18 alunos que concluíram as matérias de forma presencial, 9 realizaram com música e o restante sem música. O mesmo foi atribuído aos alunos que concluíram as matérias de forma remota. Sendo assim, com o bloco Presencial e Remoto e os fatores controlados determinados, têm-se os seguintes tratamentos para o experimento em questão:
+</p>
 
 - Remoto, com música
 - Remoto, sem música
 - Presencial, com música
 - Presencial, sem música
 
-</p>
 
 # Delineamento
 
 <p style="text-align: justify">
 
 De acordo com os tratamentos mencionados anteriormente, o grupo utilizou, então, um delineamento em blocos casualizados (DBC), obtendo os seguintes blocos:
-
-
+</p>
 
 - Alunos do curso de Licenciatura em Matemática que fizeram o 1º e o 2º período de forma online.
 - Alunos do curso de Licenciatura em Matemática que fizeram o 1º e o 2º período de forma presencial.
 - Alunos do curso de Ciência da Computação que fizeram o 1º e o 2º período de forma online.
 - Alunos do curso de Ciência da Computação que fizeram o 1º e o 2º período de forma presencial.
 
+# Análises
+
+<p style="text-align: justify">
+O objetivo de todas as análises a seguir é focado na variável numero_acertos que representa porcentagem de acertos nas avaliações.
+
 </p>
 
 # Análise Geral
 
-	TODA A ANÁLISE GERAL
+## Por Formato de Ensino
+
+```{r, echo=FALSE, fig.align='center'}
+descritivaContinua(
+  df = base, 
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = "formato_ensino"
+) %>% kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+
+descritivaCategorica(
+  df = base,
+  variaveis = c("sexo", "ano_ingresso", "tratamento", "curso"),
+  grupo = "formato_ensino"
+) %>% kableExtra::kbl(align = paste0('lll', juntar(rep('c', ncol(.)-3)))) %>% kableExtra::kable_paper()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+boxplot(
+  df = base,
+  Y = "numero_acertos",
+  X = "formato_ensino",
+  Title = "Número de Acertos por Formato de Ensino",
+  labelX = "Número de Acertos",
+  labelY = "Formato de Ensino"
+)
+```
+
+#### Hipótese
+
+$$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$
+
+```{r, echo=FALSE}
+Anova(base, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>%
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
+
+Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância de 5%.
+
+```{r}
+pressupostos(
+  fit = Anova(base, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[1]],
+  bloco = "formato_ensino",
+  df = base
+)
+```
+
+# Análise Geral
+
+## Por Tratamento
+
+```{r, echo=FALSE, fig.align='center'}
+descritivaContinua(
+  df = base,
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = "tratamento"
+) %>% kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+
+descritivaCategorica(
+  df = base,
+  variaveis = c("sexo", "ano_ingresso", "formato_ensino", "curso"),
+  grupo = "tratamento"
+) %>% kableExtra::kbl(align = paste0('lll', juntar(rep('c', ncol(.)-3)))) %>% kableExtra::kable_paper()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+boxplot(
+  df = base,
+  Y = "numero_acertos",
+  X = "tratamento",
+  Title = "Número de Acertos por Tratamento",
+  labelX = "Número de Acertos",
+  labelY = "Tratamento"
+)
+```
+
+#### Hipótese
+
+$$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$
+
+```{r, echo=FALSE}
+Anova(base, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
+```{r}
+pressupostos(
+  fit = Anova(base, "numero_acertos ~ tratamento", c("Tratamento"))[[1]],
+  trat = "tratamento",
+  df = base
+)
+```
+
+
+## Por Formato de Ensino e Tratamento
+
+```{r, echo=FALSE, fig.align='center'}
+descritivaContinua(
+  df = base,
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = c("formato_ensino", "tratamento")
+)[,-(5:6)] %>% kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+
+descritivaCategorica(
+  df = base,
+  variaveis = c("sexo", "ano_ingresso", "curso"),
+  grupo = c("formato_ensino", "tratamento")
+) %>% kableExtra::kbl(align = paste0('lll', juntar(rep('c', ncol(.)-3)))) %>% kableExtra::kable_paper()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+boxplot(
+  df = base,
+  Y = "numero_acertos",
+  X = "formato_ensino",
+  grupo = "tratamento",
+  Title = "Número de Acertos por Formato de Ensino",
+  labelX = "Número de Acertos",
+  labelY = "Formato de Ensino",
+  legend = "Tratamento"
+)
+```
+
+#### Hipótese
+
+$$H_0: \mu_{\text{Com música:Presencial}} = \mu_{\text{Com música:Remoto}} = \\ \mu_{\text{Sem música:Presencial}} = \mu_{\text{Sem música:Remoto}}$$
+
+```{r, echo=FALSE}
+Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
+
+```{r, echo=FALSE}
+pressupostos(
+  fit = Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]],
+  trat = "tratamento",
+  bloco = "formato_ensino",
+  df = base
+)
+```
 
 # Análise Ciência da Computação
 
-<p style="text-align: justify">
+## Por Formato de Ensino
 
-Assim como feita a análise considerando ambos os cursos, foi feita uma análise separada para cada curso dos alunos selecionados, de modo a proporcionar conclusões para cada curso individualmente. Além disso, assim como na análise geral, as análises foram separadas por: formato de ensino, tratamento e formato de ensino e tratamento.
-</p>
+```{r, echo=FALSE, fig.align='center'}
+descritivaContinua(
+  df = baseCDC, 
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = "formato_ensino"
+) %>% kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+
+descritivaCategorica(
+  df = baseCDC,
+  variaveis = c("sexo", "ano_ingresso", "tratamento", "curso"),
+  grupo = "formato_ensino"
+) %>% kableExtra::kbl(align = paste0('lll', juntar(rep('c', ncol(.)-3)))) %>% kableExtra::kable_paper()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+boxplot(
+  df = baseCDC,
+  Y = "numero_acertos",
+  X = "formato_ensino",
+  Title = "Número de Acertos por Formato de Ensino",
+  labelX = "Número de Acertos",
+  labelY = "Formato de Ensino"
+)
+```
+
+#### Hipótese
+
+$$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$
+
+```{r, echo=FALSE}
+Anova(baseCDC, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>%
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
+
+```{r, echo=FALSE}
+pressupostos(
+  Anova(baseCDC, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[1]],
+  bloco = "formato_ensino",
+  df = baseCDC
+)
+```
+
+## Por Tratamento
+
+```{r, echo=FALSE, fig.align='center'}
+descritivaContinua(
+  df = baseCDC,
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = "tratamento"
+) %>% kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+
+
+descritivaCategorica(
+  df = baseCDC,
+  variaveis = c("sexo", "ano_ingresso", "formato_ensino", "curso"),
+  grupo = "tratamento"
+) %>% kableExtra::kbl(align = paste0('lll', juntar(rep('c', ncol(.)-3)))) %>% kableExtra::kable_paper()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+boxplot(
+  df = baseCDC,
+  Y = "numero_acertos",
+  X = "tratamento",
+  Title = "Número de Acertos por Tratamento",
+  labelX = "Número de Acertos",
+  labelY = "Tratamento"
+)
+```
+
+#### Hipótese
+
+$$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$
+
+```{r, echo=FALSE}
+Anova(baseCDC, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
+```{r, echo=FALSE}
+pressupostos(
+  Anova(baseCDC, "numero_acertos ~ tratamento", c("Tratamento"))[[1]],
+  trat = "tratamento",
+  df = baseCDC
+)
+```
+
+## Por Formato de Ensino e Tratamento
+
+```{r, echo=FALSE, fig.align='center'}
+descritivaContinua(
+  df = baseCDC,
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = c("formato_ensino", "tratamento")
+)[,-(5:6)] %>% kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+
+descritivaCategorica(
+  df = baseCDC,
+  variaveis = c("sexo", "ano_ingresso", "curso"),
+  grupo = c("formato_ensino", "tratamento")
+) %>% kableExtra::kbl(align = paste0('lll', juntar(rep('c', ncol(.)-3)))) %>% kableExtra::kable_paper()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+boxplot(
+  df = baseCDC,
+  Y = "numero_acertos",
+  X = "formato_ensino",
+  grupo = "tratamento",
+  Title = "Número de Acertos por Formato de Ensino",
+  labelX = "Número de Acertos",
+  labelY = "Formato de Ensino",
+  legend = "Tratamento"
+)
+```
+
+#### Hipótese
+
+$$H_0: \mu_{\text{Com música:Presencial}} = \mu_{\text{Com música:Remoto}} = \\ \mu_{\text{Sem música:Presencial}} = \mu_{\text{Sem música:Remoto}}$$
+
+```{r, echo=FALSE}
+Anova(baseCDC, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
+
+```{r, echo=FALSE}
+pressupostos(
+  Anova(baseCDC, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]],
+  trat = "tratamento",
+  bloco = "formato_ensino",
+  df = baseCDC
+)
+```
+
+# Análise Matemática
 
 ## Por Formato de Ensino
 
-<p style="text-align: justify">
+```{r, echo=FALSE, fig.align='center'}
+descritivaContinua(
+  df = baseMAT, 
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = "formato_ensino"
+) %>% kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 
-Realizando a análise considerando o formato de ensino, tem-se:
+descritivaCategorica(
+  df = baseMAT,
+  variaveis = c("sexo", "ano_ingresso", "tratamento", "curso"),
+  grupo = "formato_ensino"
+) %>% kableExtra::kbl(align = paste0('lll', juntar(rep('c', ncol(.)-3)))) %>% kableExtra::kable_paper()
+```
 
+```{r, echo=FALSE, fig.align='center'}
+boxplot(
+  df = baseMAT,
+  Y = "numero_acertos",
+  X = "formato_ensino",
+  Title = "Número de Acertos por Formato de Ensino",
+  labelX = "Número de Acertos",
+  labelY = "Formato de Ensino"
+)
+```
 
+#### Hipótese
 
-DESCRITIVAS
+$$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$
 
+```{r, echo=FALSE}
+Anova(baseMAT, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>%
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
+```{r, echo=FALSE}
+pressupostos(
+  Anova(baseMAT, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[1]],
+  bloco = "formato_ensino",
+  df = baseMAT
+)
+```
 
+## Por Tratamento
 
+```{r, echo=FALSE, fig.align='center'}
+descritivaContinua(
+  df = baseMAT,
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = "tratamento"
+) %>% kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 
+descritivaCategorica(
+  df = baseMAT,
+  variaveis = c("sexo", "ano_ingresso", "formato_ensino", "curso"),
+  grupo = "tratamento"
+) %>% kableExtra::kbl(align = paste0('lll', juntar(rep('c', ncol(.)-3)))) %>% kableExtra::kable_paper()
+```
 
-Observando as descritivas, assim como na análise anterior, tem-se o presencial com aproximadamente 60% e o remoto com aproximadamente 55% para os valores de média e mediana da porcentagem de acertos obtida.
-Apesar de uma diferença de aproximadamente 5%, ainda assim não são valores tão consideráveis para notar uma diferença significativa
+```{r, echo=FALSE, fig.align='center'}
+boxplot(
+  df = baseMAT,
+  Y = "numero_acertos",
+  X = "tratamento",
+  Title = "Número de Acertos por Tratamento",
+  labelX = "Número de Acertos",
+  labelY = "Tratamento"
+)
+```
 
+#### Hipótese
 
+$$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$
 
+```{r, echo=FALSE}
+Anova(baseMAT, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
 
-A hipótese nula então é a seguinte: COLOCAR A HIPÓTESE DO SLIDE
-ANOVA
+```{r, echo=FALSE}
+pressupostos(
+  Anova(baseMAT, "numero_acertos ~ tratamento", c("Tratamento"))[[1]],
+  trat = "tratamento",
+  df = baseMAT
+)
+```
 
+## Por Formato de Ensino e Tratamento
 
+```{r, echo=FALSE, fig.align='center'}
+descritivaContinua(
+  df = baseMAT,
+  variaveis = c("numero_acertos", "idade", "duracao"),
+  grupo = c("formato_ensino", "tratamento")
+)[,-(5:6)] %>% kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 
+descritivaCategorica(
+  df = baseMAT,
+  variaveis = c("sexo", "ano_ingresso", "curso"),
+  grupo = c("formato_ensino", "tratamento")
+) %>% kableExtra::kbl(align = paste0('lll', juntar(rep('c', ncol(.)-3)))) %>% kableExtra::kable_paper()
+```
 
-Como tem-se distribuições, percebidas nas descritivas e pelo boxplot, bem semelhantes e pelo valor-p obtido com a ANOVA, não foi possível rejeitar a hipótese nula
-Vale lembrar que o nível de significância está definido em 5% para a realização de todo o experimento
-</p>
+```{r, echo=FALSE, fig.align='center'}
+boxplot(
+  df = baseMAT,
+  Y = "numero_acertos",
+  X = "formato_ensino",
+  grupo = "tratamento",
+  Title = "Número de Acertos por Formato de Ensino",
+  labelX = "Número de Acertos",
+  labelY = "Formato de Ensino",
+  legend = "Tratamento"
+)
+```
 
-### Por Tratamento
+#### Hipótese
 
-Realizando a análise considerando o tratamento, tem-se:
+$$H_0: \mu_{\text{Com música:Presencial}} = \mu_{\text{Com música:Remoto}} = \\ \mu_{\text{Sem música:Presencial}} = \mu_{\text{Sem música:Remoto}}$$
 
+```{r, echo=FALSE}
+Anova(baseMAT, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[2]] %>% 
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
 
+```{r, echo=FALSE}
+pressupostos(
+  Anova(baseMAT, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]],
+  trat = "tratamento",
+  bloco = "formato_ensino",
+  df = baseMAT
+)
+```
 
-Descritivas
-
-
-
-Observando as descritivas, principalmente voltando-se para a média e a mediana, tem-se o tratamento “com música” com aproximadamente 60% e o tratamento “sem música” com aproximadamente 55% para os valores de média e mediana da porcentagem de acertos obtida.
-Apesar de uma diferença de aproximadamente 5%, ainda assim não são valores tão consideráveis para notar uma diferença significativa
-
-
-
-Hipótese
-A hipótese nula então é a seguinte: COLOCAR A HIPÓTESE DO SLIDE
-ANOVA
-
-
-
-Como tem-se distribuições, percebidas nas descritivas e pelo 
-boxplot, bem semelhantes e pelo valor-p obtido com a ANOVA, não foi possível rejeitar a hipótese nula
-
-### Por Formato de Ensino e Tratamento
-
-Realizando a análise considerando o formato de ensino e o tratamento, tem-se:
-
-
-
-
-
-Descritivas
-
-
-
-
-
-
-
-
-
-
-
-Observando as descritivas, voltando-se para a mediana, é possível observar que os estudantes que realizaram a prova com música tiveram maiores valores de acerto em relação aos estudantes que não ouviram música, independente se foi ensino remoto e presencial. Além disso, o ensino presencial obteve resultados com valores maiores, mas com uma diferença muito pequena, sendo de menos de 5%
-Observando o boxplot, pode-se observar a nítida diferença entre aqueles que realizaram ouvindo música
-Hipótese
-A hipótese nula então é a seguinte: COLOCAR A HIPÓTESE DO SLIDE
-ANOVA
-O boxplot pode levar a entender que considerando o tratamento e o formato de ensino, a hipótese nula será rejeitada, porém, efetuando a ANOVA, pode-se perceber com os p-valores ainda continuam altos o suficientes se comparados com o nível de significância pré-determinado

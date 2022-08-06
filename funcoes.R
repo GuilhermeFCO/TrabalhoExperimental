@@ -93,22 +93,22 @@ Anova <- function(df, Formula, label) {
   return(list(fit, fitSumm))
 }
 
-pressupostos <- function(fit, tratamento = NULL, bloco = NULL, df) {
+pressupostos <- function(fit, trat = NULL, bloco = NULL, df) {
   car::qqPlot(fit$residuals, pch=19, col.lines="darkred", id=F)
   print(shapiro.test(fit$residuals))
-  if (!is.null(tratamento)) {
-    plot(as.numeric(tratamento),fit$residuals,pch=19, 
-         main = "Resíduo x Tratamentos", xlab='tratamento', ylab='resíduos')
+  if (!is.null(trat)) {
+    plot(as.numeric(df[,trat]),fit$residuals,pch=19, 
+         main = "Resíduo x Tratamento", xlab='trat', ylab='resíduos')
     abline(h=0)
     
-    print(bartlett.test(fit$residuals ~ tratamento, data=df))
+    print(bartlett.test(fit$residuals ~ df[,trat], data=df))
   }
   if (!is.null(bloco)) {
-    plot(as.numeric(bloco),fit$residuals,pch=19, 
+    plot(as.numeric(df[,bloco]),fit$residuals,pch=19, 
          main='Resíduo x Blocos', xlab='bloco', ylab='resíduos')
     abline(h=0)
     
-    print(artlett.test(fit$residuals ~ bloco, data=df))
+    print(bartlett.test(fit$residuals ~ df[,bloco], data=df))
   }
 }
 
