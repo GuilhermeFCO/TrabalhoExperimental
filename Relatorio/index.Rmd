@@ -11,6 +11,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 source("../funcoes.R")
+library(bestNormalize)
 
 juntar <- function(c) {
   x <- ""
@@ -131,6 +132,15 @@ De acordo com os tratamentos mencionados anteriormente, o grupo utilizou, então
 <p style="text-align: justify">
 O objetivo de todas as análises a seguir é focado na variável numero_acertos que representa porcentagem de acertos nas avaliações.
 
+Dessa forma as análises a seguir seguiram o seguinte padrão.
+
+1. Descritiva de todas as variáveis.
+2. Boxplot do numero_acertos pela variável de grupo.
+3. Hipótese
+4. ANOVA
+5. Interpretação ANOV.align='center'A
+6. Análise dos pressupostos
+
 </p>
 
 # Análise Geral
@@ -170,10 +180,11 @@ $$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$
 Anova(base, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>%
   kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 ```
+<p style="text-align: justify">
+Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância $\alpha$ de 5%.
+</p>
 
-Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância de 5%.
-
-```{r}
+```{r, fig.align='center'}
 pressupostos(
   fit = Anova(base, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[1]],
   bloco = "formato_ensino",
@@ -218,7 +229,12 @@ $$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$
 Anova(base, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% 
   kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 ```
-```{r}
+
+<p style="text-align: justify">
+Como o P Valor é menor do que 0.05, se rejeita $H_0$ a um nível de significância $\alpha$ de 5%. Ou seja, a média da porcentagem de acertos de alunos que fizeram a prova com música é diferente da média da porcentagem de acertos de alunos que fizeram a prova sem música. Pela descritiva é possível ver que os alunos que fizeram a prova com música tiveram uma maior média de acertos.
+</p>
+
+```{r, fig.align='center'}
 pressupostos(
   fit = Anova(base, "numero_acertos ~ tratamento", c("Tratamento"))[[1]],
   trat = "tratamento",
@@ -265,7 +281,14 @@ Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino
   kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 ```
 
-```{r, echo=FALSE}
+<p style="text-align: justify">
+Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância $\alpha$ de 5%. Lembrando que a hipótese é referente a Variável Formato do Ensino : Tratamento.
+
+Mas olhando para a variável Tratamento, o P Valor foi menor do que 0.05, ou seja, a uma diferença entre os tratamentos quando separamos por formato do ensino como pode ser observado no Boxplot anterior.
+</p>
+
+
+```{r, echo=FALSE, fig.align='center'}
 pressupostos(
   fit = Anova(base, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]],
   trat = "tratamento",
@@ -312,7 +335,9 @@ Anova(baseCDC, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %
   kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 ```
 
-```{r, echo=FALSE}
+Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância $\alpha$ de 5%.
+
+```{r, echo=FALSE, fig.align='center'}
 pressupostos(
   Anova(baseCDC, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[1]],
   bloco = "formato_ensino",
@@ -356,7 +381,12 @@ $$H_0: \mu_{\text{Com música}} = \mu_{\text{Sem música}}$$
 Anova(baseCDC, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>% 
   kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 ```
-```{r, echo=FALSE}
+
+<p style="text-align: justify">
+Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância $\alpha$ de 5%.
+</p>
+
+```{r, echo=FALSE, fig.align='center'}
 pressupostos(
   Anova(baseCDC, "numero_acertos ~ tratamento", c("Tratamento"))[[1]],
   trat = "tratamento",
@@ -402,7 +432,9 @@ Anova(baseCDC, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ens
   kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 ```
 
-```{r, echo=FALSE}
+Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância $\alpha$ de 5%.
+
+```{r, echo=FALSE, fig.align='center'}
 pressupostos(
   Anova(baseCDC, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]],
   trat = "tratamento",
@@ -448,11 +480,43 @@ $$H_0: \mu_{\text{presencial}} = \mu_{\text{remoto}}$$
 Anova(baseMAT, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>%
   kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 ```
-```{r, echo=FALSE}
+
+<p style="text-align: justify">
+Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância $\alpha$ de 5%.
+</p>
+
+```{r, echo=FALSE, fig.align='center'}
 pressupostos(
   Anova(baseMAT, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[1]],
   bloco = "formato_ensino",
   df = baseMAT
+)
+```
+
+<p style="text-align: justify">
+Como os resíduos não ão normais, aplicaremos uma transformação nos dados.
+</p>
+
+```{r}
+bestNormalize(x = baseMAT$numero_acertos, loo = TRUE)
+baseMATtransformada <- baseMAT
+baseMATtransformada$numero_acertos <- bestNormalize(x = baseMAT$numero_acertos, loo = TRUE)$x.t
+```
+
+```{r, echo=FALSE}
+Anova(baseMATtransformada, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[2]] %>%
+  kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
+```
+
+<p style="text-align: justify">
+Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância $\alpha$ de 5%.
+</p>
+
+```{r, echo=FALSE, fig.align='center'}
+pressupostos(
+  Anova(baseMATtransformada, "numero_acertos ~ formato_ensino", c("Formato do Ensino"))[[1]],
+  bloco = "formato_ensino",
+  df = baseMATtransformada
 )
 ```
 
@@ -492,7 +556,11 @@ Anova(baseMAT, "numero_acertos ~ tratamento", c("Tratamento"))[[2]] %>%
   kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 ```
 
-```{r, echo=FALSE}
+<p style="text-align: justify">
+Como o P Valor é menor do que 0.05, se rejeita $H_0$ a um nível de significância $\alpha$ de 5%. Ou seja, a média da porcentagem de acertos de alunos que fizeram a prova com música é diferente da média da porcentagem de acertos de alunos que fizeram a prova sem música. Pela descritiva é possível ver que os alunos que fizeram a prova com música tiveram uma maior média de acertos.
+</p>
+
+```{r, echo=FALSE, fig.align='center'}
 pressupostos(
   Anova(baseMAT, "numero_acertos ~ tratamento", c("Tratamento"))[[1]],
   trat = "tratamento",
@@ -538,7 +606,13 @@ Anova(baseMAT, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ens
   kableExtra::kbl(align = paste0('ll', juntar(rep('c', ncol(.)-2)))) %>% kableExtra::kable_paper()
 ```
 
-```{r, echo=FALSE}
+<p style="text-align: justify">
+Como o P Valor é maior do que 0.05, não se rejeita $H_0$ a um nível de significância $\alpha$ de 5%. Lembrando que a hipótese é referente a Variável Formato do Ensino : Tratamento.
+
+Mas olhando para a variável Tratamento, o P Valor foi menor do que 0.05, ou seja, a uma diferença entre os tratamentos quando separamos por formato do ensino como pode ser observado no Boxplot anterior.
+</p>
+
+```{r, echo=FALSE, fig.align='center'}
 pressupostos(
   Anova(baseMAT, "numero_acertos ~ formato_ensino * tratamento", c("Formato do Ensino", "Tratamento", "Formato do Ensino : Tratamento"))[[1]],
   trat = "tratamento",
@@ -547,3 +621,14 @@ pressupostos(
 )
 ```
 
+# Conclusão
+
+<p style="text-align: justify">
+Com este relatório foi possível observar que não há diferença significativa na porcentagem de acertos em relação a alunos que fizeram as matérias no remoto e os que fizeram no presencial.
+
+Em relação ao tratamento foi possível perceber uma diferença significativa na porcentagem de acertos em relação a alunos que fizeram a avaliação com música e os alunos que fizeram a avaliação sem música.
+
+Também foi possível aplicar os conhecimentos obtidos na matéria de Estatística Experimental e com isso melhorar nosso aprendizado.
+
+Um agradecimento em especial de todos os integrantes ao Professor Guaraci!
+</p>
